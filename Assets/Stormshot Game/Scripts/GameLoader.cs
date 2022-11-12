@@ -7,8 +7,6 @@ using UnityEngine;
 public class GameLoader : MonoBehaviour
 {
     private int Current_level;
-    public string saveDirectory = "Saves";
-    public string saveName = "savedGame";
 
     public void LoadFromFile()
     {
@@ -18,7 +16,7 @@ public class GameLoader : MonoBehaviour
         // Choosing the saved file to open
         try
         {
-            FileStream saveFile = File.Open(saveDirectory + "/" + saveName + ".bin", FileMode.Open);
+            FileStream saveFile = File.Open(Application.persistentDataPath + "/Saves.data", FileMode.Open);
             // Convert the file data into SaveGameData format for use in game
             SaveGameData loadData = (SaveGameData) formatter.Deserialize(saveFile);
 

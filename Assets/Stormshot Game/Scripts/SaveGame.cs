@@ -6,21 +6,19 @@ using UnityEngine;
 
 public class SaveGame : MonoBehaviour
 {
-    public string saveName = "savedGame";
-    public string directoryName = "Saves";
     public SaveGameData saveGameData;
 
     public void SaveToFile()
     {
         // To save in a directory, it must be created first
-        if (!Directory.Exists(directoryName))
-            Directory.CreateDirectory(directoryName);
+        if (!Directory.Exists(Application.persistentDataPath))
+            Directory.CreateDirectory(Application.persistentDataPath);
 
         // The formatter will convert our unity data type into a binary file
         BinaryFormatter formatter = new BinaryFormatter();
 
         // Choose the save location
-        FileStream saveFile = File.Create(directoryName + "/" + saveName + ".bin");
+        FileStream saveFile = File.Create(Application.persistentDataPath + "/Saves.data");
 
         // Write our C# Unity game data type to a binary file
         formatter.Serialize(saveFile, saveGameData);
