@@ -31,6 +31,7 @@ public class BulletTowardReflection : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Handheld.Vibrate();
         if(!GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>().game_over)
         {
             if(collision.gameObject.tag != "Enemy")
