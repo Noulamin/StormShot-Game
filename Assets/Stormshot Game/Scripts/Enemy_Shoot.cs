@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class Enemy_Shoot : MonoBehaviour
 {
@@ -10,13 +11,28 @@ public class Enemy_Shoot : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10;
 
+    public bool can_shoot = true;
+
+    void Start()
+    {
+        //GameObject.FindGameObjectWithTag("Enemy").GetComponent<RigBuilder>().enabled = false;
+    }
+
     public void Start_Shooting()
     {
-        Enemy.SetBool("Aim",true);
-        boxCollider2D.offset = new Vector2(0.01703317f,0.82f);
-        Weapon.SetActive(true);
-        gameObject.GetComponent<AudioSource>().Play();
-        InvokeRepeating("Shooting",1.5f,1.5f);
+        if(!can_shoot)
+        {
+            return;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<RigBuilder>().enabled = true;
+            Enemy.SetBool("Aim",true);
+            boxCollider2D.offset = new Vector2(0.01703317f,0.82f);
+            Weapon.SetActive(true);
+            gameObject.GetComponent<AudioSource>().Play();
+            InvokeRepeating("Shooting",1.5f,1.5f);
+        }
     }
 
     void Update()
