@@ -17,6 +17,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     public void Win()
     {
+        if(SceneManager.GetActiveScene().name == "50")
+        {
+            SceneManager.LoadScene(0);
+        }
+        
         Weapon.SetActive(false);
         gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("Dance",true);
         rig.enabled = false;
