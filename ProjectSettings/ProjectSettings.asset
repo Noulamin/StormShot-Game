@@ -655,7 +655,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     4: gameanalytics_max_enabled;gameanalytics_admob_enabled;USE_ADMOB_PATCH
-    7: gameanalytics_max_enabled;gameanalytics_admob_enabled;USE_ADMOB;USE_ADMOB_PATCH
+    7: gameanalytics_max_enabled;gameanalytics_admob_enabled;USE_ADMOB;USE_ADMOB_PATCH;USE_APPLOVIN
     14: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
