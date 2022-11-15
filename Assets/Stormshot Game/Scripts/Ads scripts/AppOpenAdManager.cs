@@ -19,7 +19,7 @@ using UnityEngine;
 public class AppOpenAdManager
 {
 
-    public string AD_UNIT_ID = "ca-app-pub-7024820506501610/4203727138";
+    public string AD_UNIT_ID = "ca-app-pub-7024820506501610/8703031300";
 
 
     private static AppOpenAdManager instance;

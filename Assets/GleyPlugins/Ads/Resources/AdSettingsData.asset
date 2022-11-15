@@ -388,7 +388,7 @@ MonoBehaviour:
     sdkLink: https://dash.applovin.com/documentation/mediation/unity/getting-started/integration
     platformSettings:
     - platform: 0
-      enabled: 1
+      enabled: 0
       appId:
         id: irVwuXyQjP0irVwuXyQjP0
         displayName: SDK key
@@ -410,9 +410,9 @@ MonoBehaviour:
       hasRewarded: 1
       directedForChildren: 0
     - platform: 1
-      enabled: 0
+      enabled: 1
       appId:
-        id: 
+        id: zEt4_M4PkG_cNWU_sR4p4RXZ6mE5AO4RAx8SQs1BVTZR5iMfLP54K_p1L4C6x88exH8F__Tr3QQ0TgrAyzCiPq
         displayName: SDK key
         notRequired: 0
       idBanner:
