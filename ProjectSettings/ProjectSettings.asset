@@ -789,7 +789,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     Android: gameanalytics_max_enabled;gameanalytics_admob_enabled;USE_ADMOB;USE_ADMOB_PATCH
     Windows Store Apps: 
-    iPhone: gameanalytics_max_enabled;gameanalytics_admob_enabled;USE_APPLOVIN;USE_ADMOB_PATCH
+    iPhone: gameanalytics_max_enabled;gameanalytics_admob_enabled;USE_ADMOB_PATCH
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

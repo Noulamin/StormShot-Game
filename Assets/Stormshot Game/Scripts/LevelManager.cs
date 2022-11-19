@@ -54,10 +54,10 @@ public class LevelManager : MonoBehaviour
 
     public void Start_button()
     {
-        Handheld.Vibrate();
-        gameObject.GetComponent<AudioSource>().Play();
+        //Handheld.Vibrate();
         Menu.SetActive(false);
         Level_tab.SetActive(true);
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     public void Next_page()

@@ -39,32 +39,6 @@ MonoBehaviour:
       weightAndroid: 1
       weightiOS: 1
       weightWindows: 1
-  - advertiser: 6
-    advertiserName: AppLovin
-    bannerSettings:
-      adType: 1
-      orderAndroid: 2
-      orderiOS: 2
-      orderWindows: 2
-      weightAndroid: 0
-      weightiOS: 0
-      weightWindows: 0
-    interstitialSettings:
-      adType: 2
-      orderAndroid: 2
-      orderiOS: 2
-      orderWindows: 2
-      weightAndroid: 0
-      weightiOS: 0
-      weightWindows: 0
-    rewardedSettings:
-      adType: 3
-      orderAndroid: 2
-      orderiOS: 2
-      orderWindows: 2
-      weightAndroid: 0
-      weightiOS: 0
-      weightWindows: 0
   advertiserSettings:
   - advertiser: 2
     useSDK: 0
@@ -127,15 +101,15 @@ MonoBehaviour:
         displayName: App ID
         notRequired: 0
       idBanner:
-        id: ca-app-pub-3940256099942544~3347511713
+        id: ca-app-pub-3940256099942544/6300978111
         displayName: Banner ID
         notRequired: 0
       idInterstitial:
-        id: ca-app-pub-3940256099942544~3347511713
+        id: ca-app-pub-3940256099942544/1033173712
         displayName: Interstitial ID
         notRequired: 0
       idRewarded:
-        id: ca-app-pub-3940256099942544~3347511713
+        id: ca-app-pub-3940256099942544/8691691433
         displayName: Rewarded Video ID
         notRequired: 0
       hasBanner: 1
@@ -143,21 +117,21 @@ MonoBehaviour:
       hasRewarded: 1
       directedForChildren: 0
     - platform: 1
-      enabled: 0
+      enabled: 1
       appId:
-        id: 
+        id: ca-app-pub-3940256099942544~3347511713
         displayName: App ID
         notRequired: 0
       idBanner:
-        id: 
+        id: ca-app-pub-3940256099942544/6300978111
         displayName: Banner ID
         notRequired: 0
       idInterstitial:
-        id: 
+        id: ca-app-pub-3940256099942544/1033173712
         displayName: Interstitial ID
         notRequired: 0
       idRewarded:
-        id: 
+        id: ca-app-pub-3940256099942544/8691691433
         displayName: Rewarded Video ID
         notRequired: 0
       hasBanner: 1
@@ -383,7 +357,7 @@ MonoBehaviour:
       hasRewarded: 1
       directedForChildren: 0
   - advertiser: 6
-    useSDK: 1
+    useSDK: 0
     preprocessorDirective: USE_APPLOVIN
     sdkLink: https://dash.applovin.com/documentation/mediation/unity/getting-started/integration
     platformSettings:
