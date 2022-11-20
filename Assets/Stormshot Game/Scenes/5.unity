@@ -2044,8 +2044,6 @@ MonoBehaviour:
       x: 1
       y: 1
       z: 1
-  m_SourceObjectsGUIToggle: 1
-  m_SettingsGUIToggle: 1
 --- !u!1 &452218557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4885,8 +4883,6 @@ MonoBehaviour:
       x: 1
       y: 1
       z: 1
-  m_SourceObjectsGUIToggle: 1
-  m_SettingsGUIToggle: 1
 --- !u!1 &1115190524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,7 +5009,7 @@ MonoBehaviour:
   Enemy: {fileID: 1958872546560456295}
   bulletPrefab: {fileID: 7453019247006872309, guid: b1e49e0c5f88b984aa1baca5ce357262, type: 3}
   bulletSpeed: 20
-  can_shoot: 1
+  can_shoot: 0
 --- !u!82 &1177504871
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14114,7 +14110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 37.8, y: -30.400024}
+  m_AnchoredPosition: {x: 37.80005, y: -30.400024}
   m_SizeDelta: {x: 70, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5344808226461723334
