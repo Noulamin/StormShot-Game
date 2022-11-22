@@ -51,7 +51,7 @@ public class BulletTowardReflection : MonoBehaviour
     private void Bounce(Vector3 collisionNormal)
     {
         var speed = lastFrameVelocity.magnitude;
-        var bounceDirection = Vector3.Reflect(lastFrameVelocity * 0.2f, collisionNormal);
+        var bounceDirection = Vector3.Reflect(lastFrameVelocity * 0.2f, collisionNormal + new Vector3(0.01f,0.01f,0.01f));
         var directionToPlayer = playerTransform.position - transform.position;
 
         var direction = Vector3.Lerp(bounceDirection, directionToPlayer, bias);
