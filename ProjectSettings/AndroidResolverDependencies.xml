@@ -2,7 +2,7 @@
   <packages>
     <package>androidx.lifecycle:lifecycle-common-java8:2.4.1</package>
     <package>androidx.lifecycle:lifecycle-process:2.4.1</package>
-    <package>com.applovin:applovin-sdk:11.5.4</package>
+    <package>com.applovin:applovin-sdk:11.5.5</package>
     <package>com.google.android.gms:play-services-ads:21.3.0</package>
     <package>com.google.android.gms:play-services-appset:16.0.2</package>
     <package>com.google.android.instantapps:instantapps:1.1.0</package>
@@ -10,7 +10,7 @@
   <files />
   <settings>
     <setting name="androidAbis" value="armeabi-v7a" />
-    <setting name="bundleId" value="com.ouaz.StromshotShootinggames" />
+    <setting name="bundleId" value="com.ouaz.Shootinggames" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="False" />
