@@ -39,6 +39,32 @@ MonoBehaviour:
       weightAndroid: 1
       weightiOS: 1
       weightWindows: 1
+  - advertiser: 6
+    advertiserName: AppLovin
+    bannerSettings:
+      adType: 1
+      orderAndroid: 2
+      orderiOS: 2
+      orderWindows: 2
+      weightAndroid: 0
+      weightiOS: 0
+      weightWindows: 0
+    interstitialSettings:
+      adType: 2
+      orderAndroid: 2
+      orderiOS: 2
+      orderWindows: 2
+      weightAndroid: 0
+      weightiOS: 0
+      weightWindows: 0
+    rewardedSettings:
+      adType: 3
+      orderAndroid: 2
+      orderiOS: 2
+      orderWindows: 2
+      weightAndroid: 0
+      weightiOS: 0
+      weightWindows: 0
   advertiserSettings:
   - advertiser: 2
     useSDK: 0
@@ -95,7 +121,7 @@ MonoBehaviour:
     sdkLink: https://github.com/googleads/googleads-mobile-unity/releases
     platformSettings:
     - platform: 0
-      enabled: 1
+      enabled: 0
       appId:
         id: ca-app-pub-3940256099942544~3347511713
         displayName: App ID
@@ -119,19 +145,19 @@ MonoBehaviour:
     - platform: 1
       enabled: 1
       appId:
-        id: ca-app-pub-3940256099942544~3347511713
+        id: ca-app-pub-7024820506501610~8894602992
         displayName: App ID
         notRequired: 0
       idBanner:
-        id: ca-app-pub-3940256099942544/6300978111
+        id: ca-app-pub-7024820506501610/4955357981
         displayName: Banner ID
         notRequired: 0
       idInterstitial:
-        id: ca-app-pub-3940256099942544/1033173712
+        id: ca-app-pub-7024820506501610/5406289283
         displayName: Interstitial ID
         notRequired: 0
       idRewarded:
-        id: ca-app-pub-3940256099942544/8691691433
+        id: ca-app-pub-7024820506501610/9153962609
         displayName: Rewarded Video ID
         notRequired: 0
       hasBanner: 1
@@ -357,7 +383,7 @@ MonoBehaviour:
       hasRewarded: 1
       directedForChildren: 0
   - advertiser: 6
-    useSDK: 0
+    useSDK: 1
     preprocessorDirective: USE_APPLOVIN
     sdkLink: https://dash.applovin.com/documentation/mediation/unity/getting-started/integration
     platformSettings:
@@ -390,15 +416,15 @@ MonoBehaviour:
         displayName: SDK key
         notRequired: 0
       idBanner:
-        id: 
+        id: e05fb7b0593f65f2
         displayName: Banner ID
         notRequired: 0
       idInterstitial:
-        id: 
+        id: 6b2573d1f72018b4
         displayName: Interstitial ID
         notRequired: 0
       idRewarded:
-        id: 
+        id: b7884fdfd1543cff
         displayName: Rewarded Video ID
         notRequired: 0
       hasBanner: 1
