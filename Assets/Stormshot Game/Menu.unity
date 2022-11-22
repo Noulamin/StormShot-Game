@@ -3680,7 +3680,6 @@ GameObject:
   - component: {fileID: 299222122}
   - component: {fileID: 299222125}
   - component: {fileID: 299222124}
-  - component: {fileID: 299222126}
   - component: {fileID: 299222127}
   - component: {fileID: 299222128}
   m_Layer: 0
@@ -3703,65 +3702,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_over: 0
-  Already_played_sprite: {fileID: 21300000, guid: bd9f2d89ca95f4d8aa4af543e31dcda3, type: 3}
-  On_played_sprite: {fileID: 21300000, guid: 9cec25c03b6b34cb69a72aed6d6bbc92, type: 3}
-  Locked_sprite: {fileID: 21300000, guid: 90fd9a140a3854a52b6f13ef3ea72012, type: 3}
-  Menu: {fileID: 1101090239}
-  Level_tab: {fileID: 2053975902}
-  page_1: {fileID: 1083422948872683413}
-  page_2: {fileID: 1901146674}
-  page_3: {fileID: 1819832172}
-  levels:
-  - {fileID: 454196416}
-  - {fileID: 1121065760}
-  - {fileID: 1837086242}
-  - {fileID: 476536789}
-  - {fileID: 2032582571}
-  - {fileID: 789967380}
-  - {fileID: 1235437115}
-  - {fileID: 2069491592}
-  - {fileID: 445938509}
-  - {fileID: 1040875427}
-  - {fileID: 2073349013}
-  - {fileID: 680602534}
-  - {fileID: 259660958}
-  - {fileID: 1267375793}
-  - {fileID: 1567177610}
-  - {fileID: 1590294686}
-  - {fileID: 632605780}
-  - {fileID: 1448595075}
-  - {fileID: 248177997}
-  - {fileID: 1439259000}
-  - {fileID: 1565300335}
-  - {fileID: 1373843844}
-  - {fileID: 29235480}
-  - {fileID: 1486142032}
-  - {fileID: 342297971}
-  - {fileID: 141079601}
-  - {fileID: 1957063885}
-  - {fileID: 178772202}
-  - {fileID: 1607459181}
-  - {fileID: 151453907}
-  - {fileID: 1677630816}
-  - {fileID: 338713748}
-  - {fileID: 1912523790}
-  - {fileID: 40142183}
-  - {fileID: 1982885427}
-  - {fileID: 2055985635}
-  - {fileID: 1582126828}
-  - {fileID: 1851674530}
-  - {fileID: 1069254239}
-  - {fileID: 764352798}
-  - {fileID: 435761860}
-  - {fileID: 827601638}
-  - {fileID: 565405843}
-  - {fileID: 576761265}
-  - {fileID: 357990540}
-  - {fileID: 755066977}
-  - {fileID: 875218737}
-  - {fileID: 1269721980}
-  - {fileID: 1427787673}
-  - {fileID: 38047048}
 --- !u!4 &299222123
 Transform:
   m_ObjectHideFlags: 0
@@ -3803,102 +3743,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveGameData:
     Level: 0
---- !u!82 &299222126
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299222121}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a353c2da554da5d4681d31140679217b, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.42
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.13
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &299222127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5104,9 +4948,11 @@ GameObject:
   - component: {fileID: 399606506}
   - component: {fileID: 399606505}
   - component: {fileID: 399606504}
+  - component: {fileID: 399606508}
+  - component: {fileID: 399606509}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5193,6 +5039,173 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &399606508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399606503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64aa225413c8cf4295d510ec8e43437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Menu: {fileID: 1101090239}
+  Level_tab: {fileID: 2053975902}
+  Already_played_sprite: {fileID: 21300000, guid: bd9f2d89ca95f4d8aa4af543e31dcda3, type: 3}
+  On_played_sprite: {fileID: 21300000, guid: 9cec25c03b6b34cb69a72aed6d6bbc92, type: 3}
+  Locked_sprite: {fileID: 21300000, guid: 90fd9a140a3854a52b6f13ef3ea72012, type: 3}
+  page_1: {fileID: 1083422948872683413}
+  page_2: {fileID: 1901146674}
+  page_3: {fileID: 1819832172}
+  levels:
+  - {fileID: 454196416}
+  - {fileID: 1121065760}
+  - {fileID: 1837086242}
+  - {fileID: 476536789}
+  - {fileID: 2032582571}
+  - {fileID: 789967380}
+  - {fileID: 1235437115}
+  - {fileID: 2069491592}
+  - {fileID: 445938509}
+  - {fileID: 1040875427}
+  - {fileID: 2073349013}
+  - {fileID: 680602534}
+  - {fileID: 259660958}
+  - {fileID: 1267375793}
+  - {fileID: 1567177610}
+  - {fileID: 1590294686}
+  - {fileID: 632605780}
+  - {fileID: 1448595075}
+  - {fileID: 248177997}
+  - {fileID: 1439259000}
+  - {fileID: 1565300335}
+  - {fileID: 1373843844}
+  - {fileID: 29235480}
+  - {fileID: 1486142032}
+  - {fileID: 342297971}
+  - {fileID: 141079601}
+  - {fileID: 1957063885}
+  - {fileID: 178772202}
+  - {fileID: 1607459181}
+  - {fileID: 151453907}
+  - {fileID: 1677630816}
+  - {fileID: 338713748}
+  - {fileID: 1912523790}
+  - {fileID: 40142183}
+  - {fileID: 1982885427}
+  - {fileID: 2055985635}
+  - {fileID: 1582126828}
+  - {fileID: 1851674530}
+  - {fileID: 1069254239}
+  - {fileID: 764352798}
+  - {fileID: 435761860}
+  - {fileID: 827601638}
+  - {fileID: 565405843}
+  - {fileID: 576761265}
+  - {fileID: 357990540}
+  - {fileID: 755066977}
+  - {fileID: 875218737}
+  - {fileID: 1269721980}
+  - {fileID: 1427787673}
+  - {fileID: 38047048}
+--- !u!82 &399606509
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399606503}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a353c2da554da5d4681d31140679217b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.42
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.13
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &409132978
 GameObject:
   m_ObjectHideFlags: 0
@@ -7657,8 +7670,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299222122}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 399606508}
+        m_TargetAssemblyTypeName: Level_Closer, Assembly-CSharp
         m_MethodName: back_button
         m_Mode: 1
         m_Arguments:
@@ -13206,7 +13219,7 @@ GameObject:
   - component: {fileID: 1101090241}
   m_Layer: 5
   m_Name: Home
-  m_TagString: Untagged
+  m_TagString: Home
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24186,7 +24199,7 @@ GameObject:
   - component: {fileID: 2053975904}
   m_Layer: 5
   m_Name: Levels tab
-  m_TagString: Untagged
+  m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25698,8 +25711,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299222122}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 399606508}
+        m_TargetAssemblyTypeName: Level_Closer, Assembly-CSharp
         m_MethodName: Last_page
         m_Mode: 1
         m_Arguments:
@@ -25947,8 +25960,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299222122}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 399606508}
+        m_TargetAssemblyTypeName: Level_Closer, Assembly-CSharp
         m_MethodName: Start_button
         m_Mode: 1
         m_Arguments:
@@ -26217,8 +26230,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299222122}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 399606508}
+        m_TargetAssemblyTypeName: Level_Closer, Assembly-CSharp
         m_MethodName: Next_page
         m_Mode: 1
         m_Arguments:

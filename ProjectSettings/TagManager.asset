@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - EnemyAim
   - Bullet
+  - Home
+  - Levels
+  - Canvas
   layers:
   - Default
   - TransparentFX
