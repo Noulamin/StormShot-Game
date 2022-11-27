@@ -41,7 +41,10 @@ public class TouchCheck : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void next_level()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>().game_over = false;
-        SceneManager.LoadScene(int.Parse(SceneManager.GetActiveScene().name) + 1);
+        AdsManager.Instance.ShowIntersitialTwoTimes(() =>
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>().game_over = false;
+            SceneManager.LoadScene(int.Parse(SceneManager.GetActiveScene().name) + 1);
+        });
     }
 }

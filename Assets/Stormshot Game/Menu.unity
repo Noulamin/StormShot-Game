@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 29235482}
   - component: {fileID: 29235486}
   - component: {fileID: 29235487}
+  - component: {fileID: 29235488}
   m_Layer: 5
   m_Name: Stage (8)
   m_TagString: Untagged
@@ -507,6 +508,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &29235488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29235480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &38047048
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +535,7 @@ GameObject:
   - component: {fileID: 38047050}
   - component: {fileID: 38047054}
   - component: {fileID: 38047055}
+  - component: {fileID: 38047056}
   m_Layer: 5
   m_Name: Stage (18)
   m_TagString: Untagged
@@ -756,6 +770,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &38047056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38047048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &40142183
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +797,7 @@ GameObject:
   - component: {fileID: 40142185}
   - component: {fileID: 40142189}
   - component: {fileID: 40142190}
+  - component: {fileID: 40142191}
   m_Layer: 5
   m_Name: Stage (13)
   m_TagString: Untagged
@@ -1005,6 +1032,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &40142191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40142183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &48356445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1498,7 @@ GameObject:
   - component: {fileID: 141079603}
   - component: {fileID: 141079607}
   - component: {fileID: 141079608}
+  - component: {fileID: 141079609}
   m_Layer: 5
   m_Name: Stage (9)
   m_TagString: Untagged
@@ -1693,6 +1733,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &141079609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141079601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &151453907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1760,7 @@ GameObject:
   - component: {fileID: 151453909}
   - component: {fileID: 151453913}
   - component: {fileID: 151453914}
+  - component: {fileID: 151453915}
   m_Layer: 5
   m_Name: Stage (11)
   m_TagString: Untagged
@@ -1942,6 +1995,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &151453915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151453907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &154862975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,6 +2444,7 @@ GameObject:
   - component: {fileID: 178772204}
   - component: {fileID: 178772208}
   - component: {fileID: 178772209}
+  - component: {fileID: 178772210}
   m_Layer: 5
   m_Name: Stage (10)
   m_TagString: Untagged
@@ -2613,6 +2679,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &178772210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178772202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &187819050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +3013,7 @@ GameObject:
   - component: {fileID: 248177999}
   - component: {fileID: 248178003}
   - component: {fileID: 248178004}
+  - component: {fileID: 248178005}
   m_Layer: 5
   m_Name: Stage (7)
   m_TagString: Untagged
@@ -3169,6 +3248,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &248178005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248177997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &259660958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,6 +3275,7 @@ GameObject:
   - component: {fileID: 259660960}
   - component: {fileID: 259660964}
   - component: {fileID: 259660965}
+  - component: {fileID: 259660966}
   m_Layer: 5
   m_Name: Stage (5)
   m_TagString: Untagged
@@ -3418,6 +3510,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &259660966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259660958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &260881953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3858,6 +3962,7 @@ GameObject:
   - component: {fileID: 338713750}
   - component: {fileID: 338713754}
   - component: {fileID: 338713755}
+  - component: {fileID: 338713756}
   m_Layer: 5
   m_Name: Stage (12)
   m_TagString: Untagged
@@ -4092,6 +4197,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &338713756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338713748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &342297971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4107,6 +4224,7 @@ GameObject:
   - component: {fileID: 342297973}
   - component: {fileID: 342297977}
   - component: {fileID: 342297978}
+  - component: {fileID: 342297979}
   m_Layer: 5
   m_Name: Stage (9)
   m_TagString: Untagged
@@ -4341,6 +4459,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &342297979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342297971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357990540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,6 +4486,7 @@ GameObject:
   - component: {fileID: 357990542}
   - component: {fileID: 357990546}
   - component: {fileID: 357990547}
+  - component: {fileID: 357990548}
   m_Layer: 5
   m_Name: Stage (16)
   m_TagString: Untagged
@@ -4590,6 +4721,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &357990548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357990540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &371944815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4986,7 +5129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1.05
   m_ReferenceResolution: {x: 800, y: 600}
@@ -5373,6 +5516,7 @@ GameObject:
   - component: {fileID: 435761862}
   - component: {fileID: 435761866}
   - component: {fileID: 435761867}
+  - component: {fileID: 435761868}
   m_Layer: 5
   m_Name: Stage (15)
   m_TagString: Untagged
@@ -5607,6 +5751,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &435761868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435761860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &441725468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5698,6 +5854,7 @@ GameObject:
   - component: {fileID: 445938511}
   - component: {fileID: 445938515}
   - component: {fileID: 445938516}
+  - component: {fileID: 445938517}
   m_Layer: 5
   m_Name: Stage (3)
   m_TagString: Untagged
@@ -5932,6 +6089,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &445938517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445938509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &454196416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5947,6 +6116,7 @@ GameObject:
   - component: {fileID: 454196418}
   - component: {fileID: 454196422}
   - component: {fileID: 454196423}
+  - component: {fileID: 454196424}
   m_Layer: 5
   m_Name: Stage (1)
   m_TagString: Untagged
@@ -6181,6 +6351,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &454196424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454196416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &476536789
 GameObject:
   m_ObjectHideFlags: 0
@@ -6196,6 +6378,7 @@ GameObject:
   - component: {fileID: 476536791}
   - component: {fileID: 476536795}
   - component: {fileID: 476536796}
+  - component: {fileID: 476536797}
   m_Layer: 5
   m_Name: Stage (2)
   m_TagString: Untagged
@@ -6430,6 +6613,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &476536797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476536789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &484362821
 GameObject:
   m_ObjectHideFlags: 0
@@ -6893,6 +7088,7 @@ GameObject:
   - component: {fileID: 565405845}
   - component: {fileID: 565405849}
   - component: {fileID: 565405850}
+  - component: {fileID: 565405851}
   m_Layer: 5
   m_Name: Stage (16)
   m_TagString: Untagged
@@ -7127,6 +7323,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &565405851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565405843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &576761265
 GameObject:
   m_ObjectHideFlags: 0
@@ -7142,6 +7350,7 @@ GameObject:
   - component: {fileID: 576761267}
   - component: {fileID: 576761271}
   - component: {fileID: 576761272}
+  - component: {fileID: 576761273}
   m_Layer: 5
   m_Name: Stage (16)
   m_TagString: Untagged
@@ -7376,6 +7585,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &576761273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576761265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &579808197
 GameObject:
   m_ObjectHideFlags: 0
@@ -7599,6 +7820,7 @@ GameObject:
   - component: {fileID: 613707224}
   - component: {fileID: 613707223}
   - component: {fileID: 613707222}
+  - component: {fileID: 613707225}
   m_Layer: 5
   m_Name: Back_button
   m_TagString: Untagged
@@ -7623,7 +7845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 326, y: -33.80005}
+  m_AnchoredPosition: {x: 265.2, y: -78.7}
   m_SizeDelta: {x: 29.1, y: 74.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &613707222
@@ -7720,6 +7942,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613707220}
   m_CullTransparentMesh: 1
+--- !u!114 &613707225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613707220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626304655
 GameObject:
   m_ObjectHideFlags: 0
@@ -7870,6 +8104,7 @@ GameObject:
   - component: {fileID: 632605782}
   - component: {fileID: 632605786}
   - component: {fileID: 632605787}
+  - component: {fileID: 632605788}
   m_Layer: 5
   m_Name: Stage (6)
   m_TagString: Untagged
@@ -8104,6 +8339,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &632605788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632605780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &636104706
 GameObject:
   m_ObjectHideFlags: 0
@@ -8676,6 +8923,7 @@ GameObject:
   - component: {fileID: 680602536}
   - component: {fileID: 680602540}
   - component: {fileID: 680602541}
+  - component: {fileID: 680602542}
   m_Layer: 5
   m_Name: Stage (4)
   m_TagString: Untagged
@@ -8910,6 +9158,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &680602542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680602534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &701083321
 GameObject:
   m_ObjectHideFlags: 0
@@ -9136,6 +9396,7 @@ GameObject:
   - component: {fileID: 755066979}
   - component: {fileID: 755066983}
   - component: {fileID: 755066984}
+  - component: {fileID: 755066985}
   m_Layer: 5
   m_Name: Stage (17)
   m_TagString: Untagged
@@ -9370,6 +9631,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &755066985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755066977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &764352798
 GameObject:
   m_ObjectHideFlags: 0
@@ -9385,6 +9658,7 @@ GameObject:
   - component: {fileID: 764352800}
   - component: {fileID: 764352804}
   - component: {fileID: 764352805}
+  - component: {fileID: 764352806}
   m_Layer: 5
   m_Name: Stage (15)
   m_TagString: Untagged
@@ -9619,6 +9893,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &764352806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764352798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &789967380
 GameObject:
   m_ObjectHideFlags: 0
@@ -9634,6 +9920,7 @@ GameObject:
   - component: {fileID: 789967382}
   - component: {fileID: 789967386}
   - component: {fileID: 789967387}
+  - component: {fileID: 789967388}
   m_Layer: 5
   m_Name: Stage (2)
   m_TagString: Untagged
@@ -9868,6 +10155,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &789967388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789967380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &792963635
 GameObject:
   m_ObjectHideFlags: 0
@@ -10094,6 +10393,7 @@ GameObject:
   - component: {fileID: 827601640}
   - component: {fileID: 827601644}
   - component: {fileID: 827601645}
+  - component: {fileID: 827601646}
   m_Layer: 5
   m_Name: Stage (15)
   m_TagString: Untagged
@@ -10328,6 +10628,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &827601646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827601638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &866143875
 GameObject:
   m_ObjectHideFlags: 0
@@ -10554,6 +10866,7 @@ GameObject:
   - component: {fileID: 875218739}
   - component: {fileID: 875218743}
   - component: {fileID: 875218744}
+  - component: {fileID: 875218745}
   m_Layer: 5
   m_Name: Stage (17)
   m_TagString: Untagged
@@ -10788,6 +11101,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &875218745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875218737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &908352657
 GameObject:
   m_ObjectHideFlags: 0
@@ -11993,6 +12318,7 @@ GameObject:
   - component: {fileID: 1040875429}
   - component: {fileID: 1040875433}
   - component: {fileID: 1040875434}
+  - component: {fileID: 1040875435}
   m_Layer: 5
   m_Name: Stage (4)
   m_TagString: Untagged
@@ -12227,6 +12553,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1040875435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040875427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1061155652
 GameObject:
   m_ObjectHideFlags: 0
@@ -12377,6 +12715,7 @@ GameObject:
   - component: {fileID: 1069254241}
   - component: {fileID: 1069254245}
   - component: {fileID: 1069254246}
+  - component: {fileID: 1069254247}
   m_Layer: 5
   m_Name: Stage (14)
   m_TagString: Untagged
@@ -12611,6 +12950,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1069254247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069254239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1070157295
 GameObject:
   m_ObjectHideFlags: 0
@@ -13568,6 +13919,7 @@ GameObject:
   - component: {fileID: 1121065762}
   - component: {fileID: 1121065766}
   - component: {fileID: 1121065767}
+  - component: {fileID: 1121065768}
   m_Layer: 5
   m_Name: Stage (1)
   m_TagString: Untagged
@@ -13802,6 +14154,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1121065768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121065760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1140942254
 GameObject:
   m_ObjectHideFlags: 0
@@ -14087,6 +14451,7 @@ GameObject:
   - component: {fileID: 1235437117}
   - component: {fileID: 1235437121}
   - component: {fileID: 1235437122}
+  - component: {fileID: 1235437123}
   m_Layer: 5
   m_Name: Stage (3)
   m_TagString: Untagged
@@ -14321,6 +14686,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1235437123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235437115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1242116502
 GameObject:
   m_ObjectHideFlags: 0
@@ -14623,6 +15000,7 @@ GameObject:
   - component: {fileID: 1267375795}
   - component: {fileID: 1267375799}
   - component: {fileID: 1267375800}
+  - component: {fileID: 1267375801}
   m_Layer: 5
   m_Name: Stage (5)
   m_TagString: Untagged
@@ -14857,6 +15235,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1267375801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267375793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1269721980
 GameObject:
   m_ObjectHideFlags: 0
@@ -14872,6 +15262,7 @@ GameObject:
   - component: {fileID: 1269721982}
   - component: {fileID: 1269721986}
   - component: {fileID: 1269721987}
+  - component: {fileID: 1269721988}
   m_Layer: 5
   m_Name: Stage (17)
   m_TagString: Untagged
@@ -15106,6 +15497,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1269721988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269721980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1291417252
 GameObject:
   m_ObjectHideFlags: 0
@@ -15509,6 +15912,7 @@ GameObject:
   - component: {fileID: 1373843846}
   - component: {fileID: 1373843850}
   - component: {fileID: 1373843851}
+  - component: {fileID: 1373843852}
   m_Layer: 5
   m_Name: Stage (8)
   m_TagString: Untagged
@@ -15743,6 +16147,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1373843852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373843844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1412830766
 GameObject:
   m_ObjectHideFlags: 0
@@ -16045,6 +16461,7 @@ GameObject:
   - component: {fileID: 1427787675}
   - component: {fileID: 1427787679}
   - component: {fileID: 1427787680}
+  - component: {fileID: 1427787681}
   m_Layer: 5
   m_Name: Stage (18)
   m_TagString: Untagged
@@ -16279,6 +16696,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1427787681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427787673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1432375289
 GameObject:
   m_ObjectHideFlags: 0
@@ -16564,6 +16993,7 @@ GameObject:
   - component: {fileID: 1439259002}
   - component: {fileID: 1439259006}
   - component: {fileID: 1439259007}
+  - component: {fileID: 1439259008}
   m_Layer: 5
   m_Name: Stage (7)
   m_TagString: Untagged
@@ -16798,6 +17228,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1439259008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439259000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1444853040
 GameObject:
   m_ObjectHideFlags: 0
@@ -16889,6 +17331,7 @@ GameObject:
   - component: {fileID: 1448595077}
   - component: {fileID: 1448595081}
   - component: {fileID: 1448595082}
+  - component: {fileID: 1448595083}
   m_Layer: 5
   m_Name: Stage (6)
   m_TagString: Untagged
@@ -17123,6 +17566,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1448595083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448595075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1458339007
 GameObject:
   m_ObjectHideFlags: 0
@@ -17425,6 +17880,7 @@ GameObject:
   - component: {fileID: 1486142034}
   - component: {fileID: 1486142038}
   - component: {fileID: 1486142039}
+  - component: {fileID: 1486142040}
   m_Layer: 5
   m_Name: Stage (8)
   m_TagString: Untagged
@@ -17659,6 +18115,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1486142040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486142032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1488900454
 GameObject:
   m_ObjectHideFlags: 0
@@ -18518,6 +18986,7 @@ GameObject:
   - component: {fileID: 1565300337}
   - component: {fileID: 1565300341}
   - component: {fileID: 1565300342}
+  - component: {fileID: 1565300343}
   m_Layer: 5
   m_Name: Stage (7)
   m_TagString: Untagged
@@ -18752,6 +19221,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1565300343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565300335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1567177610
 GameObject:
   m_ObjectHideFlags: 0
@@ -18767,6 +19248,7 @@ GameObject:
   - component: {fileID: 1567177612}
   - component: {fileID: 1567177616}
   - component: {fileID: 1567177617}
+  - component: {fileID: 1567177618}
   m_Layer: 5
   m_Name: Stage (5)
   m_TagString: Untagged
@@ -19001,6 +19483,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1567177618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567177610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1576043574
 GameObject:
   m_ObjectHideFlags: 0
@@ -19303,6 +19797,7 @@ GameObject:
   - component: {fileID: 1582126830}
   - component: {fileID: 1582126834}
   - component: {fileID: 1582126835}
+  - component: {fileID: 1582126836}
   m_Layer: 5
   m_Name: Stage (14)
   m_TagString: Untagged
@@ -19537,6 +20032,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1582126836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582126828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590294686
 GameObject:
   m_ObjectHideFlags: 0
@@ -19552,6 +20059,7 @@ GameObject:
   - component: {fileID: 1590294688}
   - component: {fileID: 1590294692}
   - component: {fileID: 1590294693}
+  - component: {fileID: 1590294694}
   m_Layer: 5
   m_Name: Stage (6)
   m_TagString: Untagged
@@ -19786,6 +20294,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1590294694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590294686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1607459181
 GameObject:
   m_ObjectHideFlags: 0
@@ -19801,6 +20321,7 @@ GameObject:
   - component: {fileID: 1607459183}
   - component: {fileID: 1607459187}
   - component: {fileID: 1607459188}
+  - component: {fileID: 1607459189}
   m_Layer: 5
   m_Name: Stage (10)
   m_TagString: Untagged
@@ -20035,6 +20556,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1607459189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607459181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1612918482
 GameObject:
   m_ObjectHideFlags: 0
@@ -20548,6 +21081,7 @@ GameObject:
   - component: {fileID: 1677630818}
   - component: {fileID: 1677630822}
   - component: {fileID: 1677630823}
+  - component: {fileID: 1677630824}
   m_Layer: 5
   m_Name: Stage (11)
   m_TagString: Untagged
@@ -20782,6 +21316,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1677630824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677630816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1711955109
 GameObject:
   m_ObjectHideFlags: 0
@@ -21653,6 +22199,7 @@ GameObject:
   - component: {fileID: 1837086244}
   - component: {fileID: 1837086248}
   - component: {fileID: 1837086249}
+  - component: {fileID: 1837086250}
   m_Layer: 5
   m_Name: Stage (1)
   m_TagString: Untagged
@@ -21887,6 +22434,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1837086250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837086242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1851674530
 GameObject:
   m_ObjectHideFlags: 0
@@ -21902,6 +22461,7 @@ GameObject:
   - component: {fileID: 1851674532}
   - component: {fileID: 1851674536}
   - component: {fileID: 1851674537}
+  - component: {fileID: 1851674538}
   m_Layer: 5
   m_Name: Stage (14)
   m_TagString: Untagged
@@ -22136,6 +22696,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1851674538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851674530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874115716
 GameObject:
   m_ObjectHideFlags: 0
@@ -22322,6 +22894,7 @@ GameObject:
   - component: {fileID: 1912523792}
   - component: {fileID: 1912523796}
   - component: {fileID: 1912523797}
+  - component: {fileID: 1912523798}
   m_Layer: 5
   m_Name: Stage (12)
   m_TagString: Untagged
@@ -22556,6 +23129,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1912523798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912523790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918156114
 GameObject:
   m_ObjectHideFlags: 0
@@ -22897,6 +23482,7 @@ GameObject:
   - component: {fileID: 1957063887}
   - component: {fileID: 1957063891}
   - component: {fileID: 1957063892}
+  - component: {fileID: 1957063893}
   m_Layer: 5
   m_Name: Stage (9)
   m_TagString: Untagged
@@ -23131,6 +23717,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1957063893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957063885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1962322884
 GameObject:
   m_ObjectHideFlags: 0
@@ -23281,6 +23879,7 @@ GameObject:
   - component: {fileID: 1982885429}
   - component: {fileID: 1982885433}
   - component: {fileID: 1982885434}
+  - component: {fileID: 1982885435}
   m_Layer: 5
   m_Name: Stage (13)
   m_TagString: Untagged
@@ -23515,6 +24114,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1982885435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982885427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1986442682
 GameObject:
   m_ObjectHideFlags: 0
@@ -23876,6 +24487,7 @@ GameObject:
   - component: {fileID: 2032582573}
   - component: {fileID: 2032582577}
   - component: {fileID: 2032582578}
+  - component: {fileID: 2032582579}
   m_Layer: 5
   m_Name: Stage (2)
   m_TagString: Untagged
@@ -24110,6 +24722,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2032582579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032582571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2046291296
 GameObject:
   m_ObjectHideFlags: 0
@@ -24284,6 +24908,7 @@ GameObject:
   - component: {fileID: 2055985637}
   - component: {fileID: 2055985641}
   - component: {fileID: 2055985642}
+  - component: {fileID: 2055985643}
   m_Layer: 5
   m_Name: Stage (13)
   m_TagString: Untagged
@@ -24518,6 +25143,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2055985643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055985635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2069491592
 GameObject:
   m_ObjectHideFlags: 0
@@ -24533,6 +25170,7 @@ GameObject:
   - component: {fileID: 2069491594}
   - component: {fileID: 2069491598}
   - component: {fileID: 2069491599}
+  - component: {fileID: 2069491600}
   m_Layer: 5
   m_Name: Stage (3)
   m_TagString: Untagged
@@ -24767,6 +25405,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2069491600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069491592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2073349013
 GameObject:
   m_ObjectHideFlags: 0
@@ -24782,6 +25432,7 @@ GameObject:
   - component: {fileID: 2073349015}
   - component: {fileID: 2073349019}
   - component: {fileID: 2073349020}
+  - component: {fileID: 2073349021}
   m_Layer: 5
   m_Name: Stage (4)
   m_TagString: Untagged
@@ -25016,6 +25667,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2073349021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073349013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2080355708
 GameObject:
   m_ObjectHideFlags: 0
@@ -25589,9 +26252,9 @@ RectTransform:
   m_Father: {fileID: 2053975903}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: 6}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 260, y: 0}
   m_SizeDelta: {x: 27, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &629118480225286985
@@ -25607,6 +26270,7 @@ GameObject:
   - component: {fileID: 629118480225286987}
   - component: {fileID: 629118480225286989}
   - component: {fileID: 629118480225286988}
+  - component: {fileID: 629118480225286990}
   m_Layer: 5
   m_Name: Button_Prev
   m_TagString: Untagged
@@ -25723,6 +26387,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &629118480225286990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629118480225286985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &915182427621987009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25888,6 +26564,7 @@ GameObject:
   - component: {fileID: 1607041094980895760}
   - component: {fileID: 1607041094980895759}
   - component: {fileID: 1607041094980895762}
+  - component: {fileID: 1607041094980895763}
   m_Layer: 5
   m_Name: Button_Play
   m_TagString: Untagged
@@ -26025,6 +26702,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.15294118}
   m_EffectDistance: {x: 10, y: -10}
   m_UseGraphicAlpha: 1
+--- !u!114 &1607041094980895763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607041094980895757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1607041095978902780
 GameObject:
   m_ObjectHideFlags: 0
@@ -26146,9 +26835,9 @@ RectTransform:
   m_Father: {fileID: 2053975903}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 178, y: 6}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -260, y: 0}
   m_SizeDelta: {x: 27, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2147048776474547014
@@ -26164,6 +26853,7 @@ GameObject:
   - component: {fileID: 2147048776474547012}
   - component: {fileID: 2147048776474547066}
   - component: {fileID: 2147048776474547065}
+  - component: {fileID: 2147048776474547068}
   m_Layer: 5
   m_Name: Button_Next
   m_TagString: Untagged
@@ -26250,3 +26940,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147048776474547014}
   m_CullTransparentMesh: 0
+--- !u!114 &2147048776474547068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147048776474547014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b8a400582d5b409de26ba5f4780d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

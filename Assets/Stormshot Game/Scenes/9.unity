@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 64948066}
   - component: {fileID: 64948065}
   - component: {fileID: 64948064}
+  - component: {fileID: 64948068}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -349,6 +350,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &64948068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64948063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7209180e01f1e46bad7cd229586c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &72816315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,8 +1833,6 @@ MonoBehaviour:
       x: 1
       y: 1
       z: 1
-  m_SourceObjectsGUIToggle: 1
-  m_SettingsGUIToggle: 1
 --- !u!1 &452218557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,8 +4894,6 @@ MonoBehaviour:
       x: 1
       y: 1
       z: 1
-  m_SourceObjectsGUIToggle: 1
-  m_SettingsGUIToggle: 1
 --- !u!1 &1115190524
 GameObject:
   m_ObjectHideFlags: 0

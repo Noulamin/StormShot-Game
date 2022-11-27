@@ -13,39 +13,13 @@ MonoBehaviour:
   m_Name: AdSettingsData
   m_EditorClassIdentifier: 
   mediationSettings:
-  - advertiser: 6
-    advertiserName: AppLovin
-    bannerSettings:
-      adType: 1
-      orderAndroid: 1
-      orderiOS: 1
-      orderWindows: 1
-      weightAndroid: 0
-      weightiOS: 0
-      weightWindows: 0
-    interstitialSettings:
-      adType: 2
-      orderAndroid: 2
-      orderiOS: 2
-      orderWindows: 2
-      weightAndroid: 0
-      weightiOS: 0
-      weightWindows: 0
-    rewardedSettings:
-      adType: 3
-      orderAndroid: 2
-      orderiOS: 2
-      orderWindows: 2
-      weightAndroid: 0
-      weightiOS: 0
-      weightWindows: 0
   - advertiser: 0
     advertiserName: Admob
     bannerSettings:
       adType: 1
-      orderAndroid: 2
-      orderiOS: 2
-      orderWindows: 2
+      orderAndroid: 1
+      orderiOS: 1
+      orderWindows: 1
       weightAndroid: 1
       weightiOS: 1
       weightWindows: 1
@@ -65,6 +39,32 @@ MonoBehaviour:
       weightAndroid: 1
       weightiOS: 1
       weightWindows: 1
+  - advertiser: 6
+    advertiserName: AppLovin
+    bannerSettings:
+      adType: 1
+      orderAndroid: 2
+      orderiOS: 2
+      orderWindows: 2
+      weightAndroid: 0
+      weightiOS: 0
+      weightWindows: 0
+    interstitialSettings:
+      adType: 2
+      orderAndroid: 2
+      orderiOS: 2
+      orderWindows: 2
+      weightAndroid: 0
+      weightiOS: 0
+      weightWindows: 0
+    rewardedSettings:
+      adType: 3
+      orderAndroid: 2
+      orderiOS: 2
+      orderWindows: 2
+      weightAndroid: 0
+      weightiOS: 0
+      weightWindows: 0
   advertiserSettings:
   - advertiser: 2
     useSDK: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
         displayName: App ID
         notRequired: 0
       idBanner:
-        id: ca-app-pub-3940256099942544/6300978111
+        id: ca-app-pub-3940256099942544/630097811
         displayName: Banner ID
         notRequired: 0
       idInterstitial:

@@ -6,13 +6,14 @@ using UnityEngine.Events;
 
 public class AdsManager : MonoBehaviour
 {
-    
+
     public static Action onRewardedAdClosed, onUserEarnedReward;
     public static AdsManager Instance;
 
     private void Awake()
     {
-        if(Instance == null){
+        if (Instance == null)
+        {
             Instance = this;
             DontDestroyOnLoad(gameObject);
             return;
@@ -23,12 +24,13 @@ public class AdsManager : MonoBehaviour
     private void Start()
     {
         Advertisements.Instance.Initialize();
-            Invoke("InitOpenApp",0.5f);
-            Invoke("ShowBanner",1);
+        Invoke("InitOpenApp", 0.5f);
+        Invoke("ShowBanner", 1);
     }
-    void InitOpenApp(){
+    void InitOpenApp()
+    {
         AppOpenAdManager.Instance.LoadAd();
-            AppStateEventNotifier.AppStateChanged += OnAppStateChanged;
+        AppStateEventNotifier.AppStateChanged += OnAppStateChanged;
 
     }
     public void OnAppStateChanged(AppState state)
@@ -55,7 +57,10 @@ public class AdsManager : MonoBehaviour
             return;
         }
         timer = Time.time + 30;
-        ShowInterstitial();
+        ShowIntersitial(() =>
+        {
+            action?.Invoke();
+        });
     }
 
     public void ShowBanner()
@@ -72,7 +77,8 @@ public class AdsManager : MonoBehaviour
     {
         if (Advertisements.Instance.IsInterstitialAvailable())
         {
-            Advertisements.Instance.ShowInterstitial(()=>{
+            Advertisements.Instance.ShowInterstitial(() =>
+            {
                 //CUtils.SetActionTime("show_ads");
             });
             return true;
@@ -84,11 +90,12 @@ public class AdsManager : MonoBehaviour
     {
         if (Advertisements.Instance.IsRewardVideoAvailable())
         {
-            Advertisements.Instance.ShowRewardedVideo((b)=>{
-                if(b){
-                        onUserEarnedReward?.Invoke();
-                        print("HandleRewardedAdRewarded event received for ");
-                }
+            Advertisements.Instance.ShowRewardedVideo((b) =>
+            {
+
+                onUserEarnedReward?.Invoke();
+                print("HandleRewardedAdRewarded event received for ");
+
                 onRewardedAdClosed?.Invoke();
 
             });
@@ -96,21 +103,56 @@ public class AdsManager : MonoBehaviour
         }
         else
         {
-         print("Rewarded ad is not ready yet");
-         return false;
+            print("Rewarded ad is not ready yet");
+            return false;
         }
     }
-    public void ShowIntersitial(UnityAction CompleteMethod){
-        if(Advertisements.Instance.IsInterstitialAvailable()){
+    int showCountIntertitial;
+    int showCountReward;
+    public void ShowIntersitialTwoTimes(UnityAction CompleteMethod)
+    {
+        if (showCountIntertitial >= 2 && Advertisements.Instance.IsInterstitialAvailable())
+        {
+            if (showCountReward >= 4)
+            {
+                Advertisements.Instance.ShowRewardedVideo((b) =>
+                {
+                    CompleteMethod?.Invoke();
+                });
+                showCountReward = 0;
+            }
+            else
+            {
+                Advertisements.Instance.ShowInterstitial(CompleteMethod);
+            }
+            showCountIntertitial = 0;
+        }
+        else
+        {
+            CompleteMethod?.Invoke();
+        }
+        showCountIntertitial++;
+        showCountReward++;
+    }
+    public void ShowIntersitial(UnityAction CompleteMethod)
+    {
+        if (Advertisements.Instance.IsInterstitialAvailable())
+        {
             Advertisements.Instance.ShowInterstitial(CompleteMethod);
-        }else{
+        }
+        else
+        {
             CompleteMethod?.Invoke();
         }
     }
-    public void ShowReward(UnityAction<bool> CompleteMethod){
-        if(Advertisements.Instance.IsRewardVideoAvailable()){
+    public void ShowReward(UnityAction<bool> CompleteMethod)
+    {
+        if (Advertisements.Instance.IsRewardVideoAvailable())
+        {
             Advertisements.Instance.ShowRewardedVideo(CompleteMethod);
-        }else{
+        }
+        else
+        {
             CompleteMethod?.Invoke(false);
         }
     }
