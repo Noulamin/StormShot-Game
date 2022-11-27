@@ -8,9 +8,10 @@ public class Banner_ad : MonoBehaviour
     private BannerView bannerView;
     public void Start()
     {
-        MobileAds.Initialize(initStatus => { });
+        //MobileAds.Initialize(initStatus => { });
 
-        this.RequestBanner();
+        //this.RequestBanner();
+        AdsManager.Instance.ShowBanner();
     }
 
     private void RequestBanner()
