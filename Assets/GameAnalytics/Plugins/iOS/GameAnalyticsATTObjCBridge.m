@@ -2,7 +2,7 @@
 #import "GameAnalyticsATTObjCBridge.h"
 
 
-void GameAnalyticsRequestTrackingAuthorization(
+void RequestTrackingAuthorization(
     GameAnalyticsATTListenerNotDetermined gameAnalyticsATTListenerNotDetermined,
     GameAnalyticsATTListenerRestricted gameAnalyticsATTListenerRestricted,
     GameAnalyticsATTListenerDenied gameAnalyticsATTListenerDenied,

@@ -39,7 +39,7 @@ namespace GameAnalyticsSDK.Wrapper
         private static extern void configureAutoDetectAppVersion(bool flag);
 
         [DllImport ("__Internal")]
-        private static extern void gaInitialize(string gamekey, string gamesecret, bool nativeErrorReporting);
+        private static extern void initialize(string gamekey, string gamesecret);
 
         [DllImport ("__Internal")]
         private static extern void setCustomDimension01(string customDimension);
@@ -51,31 +51,28 @@ namespace GameAnalyticsSDK.Wrapper
         private static extern void setCustomDimension03(string customDimension);
 
         [DllImport ("__Internal")]
-        private static extern void setGlobalCustomEventFields(string customFields);
+        private static extern void addBusinessEvent(string currency, int amount, string itemType, string itemId, string cartType, string receipt, string fields);
 
         [DllImport ("__Internal")]
-        private static extern void addBusinessEvent(string currency, int amount, string itemType, string itemId, string cartType, string receipt, string fields, bool mergeFields);
+        private static extern void addBusinessEventAndAutoFetchReceipt(string currency, int amount, string itemType, string itemId, string cartType, string fields);
 
         [DllImport ("__Internal")]
-        private static extern void addBusinessEventAndAutoFetchReceipt(string currency, int amount, string itemType, string itemId, string cartType, string fields, bool mergeFields);
+        private static extern void addResourceEvent(int flowType, string currency, float amount, string itemType, string itemId, string fields);
 
         [DllImport ("__Internal")]
-        private static extern void addResourceEvent(int flowType, string currency, float amount, string itemType, string itemId, string fields, bool mergeFields);
+        private static extern void addProgressionEvent(int progressionStatus, string progression01, string progression02, string progression03, string fields);
 
         [DllImport ("__Internal")]
-        private static extern void addProgressionEvent(int progressionStatus, string progression01, string progression02, string progression03, string fields, bool mergeFields);
+        private static extern void addProgressionEventWithScore(int progressionStatus, string progression01, string progression02, string progression03, int score, string fields);
 
         [DllImport ("__Internal")]
-        private static extern void addProgressionEventWithScore(int progressionStatus, string progression01, string progression02, string progression03, int score, string fields, bool mergeFields);
+        private static extern void addDesignEvent(string eventId, string fields);
 
         [DllImport ("__Internal")]
-        private static extern void addDesignEvent(string eventId, string fields, bool mergeFields);
+        private static extern void addDesignEventWithValue(string eventId, float value, string fields);
 
         [DllImport ("__Internal")]
-        private static extern void addDesignEventWithValue(string eventId, float value, string fields, bool mergeFields);
-
-        [DllImport ("__Internal")]
-        private static extern void addErrorEvent(int severity, string message, string fields, bool mergeFields);
+        private static extern void addErrorEvent(int severity, string message, string fields);
 
         [DllImport ("__Internal")]
         private static extern void setEnabledInfoLog(bool enabled);
@@ -113,11 +110,6 @@ namespace GameAnalyticsSDK.Wrapper
         [DllImport ("__Internal")]
         [return: MarshalAs(UnmanagedType.LPStr)]
         private static extern string getABTestingVariantId();
-
-        private static void initialize(string gamekey, string gamesecret)
-        {
-            gaInitialize(gamekey, gamesecret, GameAnalytics.SettingsGA.NativeErrorReporting);
-        }
 
 #endif
     }

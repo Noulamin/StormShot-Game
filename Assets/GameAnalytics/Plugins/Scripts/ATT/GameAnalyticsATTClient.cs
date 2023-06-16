@@ -44,7 +44,7 @@ namespace GameAnalyticsSDK.iOS
         public void RequestTrackingAuthorization(IGameAnalyticsATTListener listener)
         {
             _attListener = listener;
-            GameAnalyticsATTObjCBridge.GameAnalyticsRequestTrackingAuthorization(GameAnalyticsATTListenerNotDetermined, GameAnalyticsATTListenerRestricted,
+            GameAnalyticsATTObjCBridge.RequestTrackingAuthorization(GameAnalyticsATTListenerNotDetermined, GameAnalyticsATTListenerRestricted,
                 GameAnalyticsATTListenerDenied, GameAnalyticsATTListenerAuthorized);
         }
     }

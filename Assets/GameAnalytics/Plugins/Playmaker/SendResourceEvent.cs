@@ -44,7 +44,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnEnter()
 		{
-			GA_Resource.NewEvent(ResourceFlowType, ResourceCurrency.Value, Amount.Value, ItemType.Value, ItemID.Value, null, false);
+			GA_Resource.NewEvent(ResourceFlowType, ResourceCurrency.Value, Amount.Value, ItemType.Value, ItemID.Value, null);
 
 			Finish();
 		}

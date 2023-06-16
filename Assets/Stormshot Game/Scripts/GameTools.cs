@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
+// using GoogleMobileAds.Api;
+// using GoogleMobileAds.Common;
 
 public class GameTools : MonoBehaviour
 {
@@ -62,7 +62,7 @@ public class GameTools : MonoBehaviour
         // }
 
         // InvokeRepeating("reload",0.3f,0.3f);
-        AdsManager.Instance.ShowIntersitialTwoTimes(() =>
+        AdsManager.Instance.ShowInterstitialTimer(() =>
         {
             reload();
         });

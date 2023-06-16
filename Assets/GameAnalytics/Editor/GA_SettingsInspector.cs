@@ -21,9 +21,6 @@ namespace GameAnalyticsSDK.Editor
     [CustomEditor(typeof(GameAnalyticsSDK.Setup.Settings))]
     public class GA_SettingsInspector : UnityEditor.Editor
     {
-        public const bool IsCustomPackage = false;
-        private const string AssetsPrependPath = IsCustomPackage ? "Packages/com.gameanalytics.sdk" : "Assets/GameAnalytics";
-
         private GUIContent _publicKeyLabel = new GUIContent("Game Key", "Your GameAnalytics Game Key - copy/paste from the GA website.");
         private GUIContent _privateKeyLabel = new GUIContent("Secret Key", "Your GameAnalytics Secret Key - copy/paste from the GA website.");
         private GUIContent _emailLabel = new GUIContent("Email", "Your GameAnalytics user account email.");
@@ -36,6 +33,7 @@ namespace GameAnalyticsSDK.Editor
         private GUIContent _infoLogBuild = new GUIContent("Info Log Build", "Show info messages from GA in builds (f.x. Xcode for iOS).");
         private GUIContent _verboseLogBuild = new GUIContent("Verbose Log Build", "Show full info messages from GA in builds (f.x. Xcode for iOS). Noet that this option includes long JSON messages sent to the server.");
         private GUIContent _useManualSessionHandling = new GUIContent("Use manual session handling", "Manually choose when to end and start a new session. Note initializing of the SDK will automatically start the first session.");
+        private GUIContent _useIMEI = new GUIContent("Use IMEI (android only)", "When Google Ad Id is not available try to use IMEI id as user is. REMEMBER to add READ_PHONE_STATE permission.");
 #if UNITY_5_6_OR_NEWER
         private GUIContent _usePlayerSettingsBunldeVersionForBuild = new GUIContent("Send Version* (Android, iOS) as build number", "The SDK will automatically fetch the version* number on Android and iOS and send it as the GameAnalytics build number.");
 #else
@@ -54,7 +52,6 @@ namespace GameAnalyticsSDK.Editor
         private GUIContent _gaFpsCritical = new GUIContent("Submit Critical FPS", "Submit a message whenever the frames per second falls below a certain threshold. The location of the Track Target will be used for critical FPS events.");
         private GUIContent _gaFpsCriticalThreshold = new GUIContent("FPS <", "Frames per second threshold.");
         private GUIContent _gaSubmitErrors = new GUIContent("Submit Errors", "Submit error and exception messages to the GameAnalytics server. Useful for getting relevant data when the game crashes, etc.");
-        private GUIContent _gaNativeErrorReporting = new GUIContent("Native error reporting (Android, iOS)", "Submit error and exception messages from native errors and exceptions to the GameAnalytics server. Useful for getting relevant data when the game crashes, etc. from native code.");
 
         private GUIContent _gameSetupIcon;
         private bool _gameSetupIconOpen = false;
@@ -99,42 +96,42 @@ namespace GameAnalyticsSDK.Editor
 
             if (ga.UpdateIcon == null)
             {
-                ga.UpdateIcon = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/update_orange.png", typeof(Texture2D));
+                ga.UpdateIcon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/update_orange.png", typeof(Texture2D));
             }
 
             if (ga.DeleteIcon == null)
             {
-                ga.DeleteIcon = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/delete.png", typeof(Texture2D));
+                ga.DeleteIcon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/delete.png", typeof(Texture2D));
             }
 
             if (ga.GameIcon == null)
             {
-                ga.GameIcon = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/game.png", typeof(Texture2D));
+                ga.GameIcon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/game.png", typeof(Texture2D));
             }
 
             if (ga.HomeIcon == null)
             {
-                ga.HomeIcon = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/home.png", typeof(Texture2D));
+                ga.HomeIcon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/home.png", typeof(Texture2D));
             }
 
             if (ga.InfoIcon == null)
             {
-                ga.InfoIcon = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/info.png", typeof(Texture2D));
+                ga.InfoIcon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/info.png", typeof(Texture2D));
             }
 
             if (ga.InstrumentIcon == null)
             {
-                ga.InstrumentIcon = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/instrument.png", typeof(Texture2D));
+                ga.InstrumentIcon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/instrument.png", typeof(Texture2D));
             }
 
             if (ga.QuestionIcon == null)
             {
-                ga.QuestionIcon = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/question.png", typeof(Texture2D));
+                ga.QuestionIcon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/question.png", typeof(Texture2D));
             }
 
             if (ga.UserIcon == null)
             {
-                ga.UserIcon = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/user.png", typeof(Texture2D));
+                ga.UserIcon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/user.png", typeof(Texture2D));
             }
 
             if (_gameSetupIcon == null)
@@ -184,7 +181,7 @@ namespace GameAnalyticsSDK.Editor
 
             if (ga.Logo == null)
             {
-                ga.Logo = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/gaLogo.png", typeof(Texture2D));
+                ga.Logo = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/gaLogo.png", typeof(Texture2D));
             }
         }
 
@@ -198,8 +195,8 @@ namespace GameAnalyticsSDK.Editor
             if (ga.SignupButton == null)
             {
                 GUIStyle signupButton = new GUIStyle(GUI.skin.button);
-                signupButton.normal.background = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/default.png", typeof(Texture2D));
-                signupButton.active.background = (Texture2D)AssetDatabase.LoadAssetAtPath(AssetsPrependPath + "/Gizmos/GameAnalytics/Images/active.png", typeof(Texture2D));
+                signupButton.normal.background = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/default.png", typeof(Texture2D));
+                signupButton.active.background = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/GameAnalytics/Gizmos/GameAnalytics/Images/active.png", typeof(Texture2D));
                 signupButton.normal.textColor = Color.white;
                 signupButton.active.textColor = Color.white;
                 signupButton.fontSize = 14;
@@ -779,7 +776,6 @@ namespace GameAnalyticsSDK.Editor
                                         {
                                             ga.SelectedGame[i] = 0;
                                         }
-
                                         int tmpSelectedGame = ga.SelectedGame[i];
                                         ga.SelectedGame[i] = EditorGUILayout.Popup("", ga.SelectedGame[i], gameNames);
                                         GUILayout.EndHorizontal();
@@ -1420,14 +1416,6 @@ namespace GameAnalyticsSDK.Editor
 
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("", GUILayout.Width(-18));
-                    ga.NativeErrorReporting = EditorGUILayout.Toggle("", ga.NativeErrorReporting, GUILayout.Width(35));
-                    GUILayout.Label(_gaNativeErrorReporting);
-                    GUILayout.EndHorizontal();
-
-                    EditorGUILayout.Space();
-
-                    GUILayout.BeginHorizontal();
-                    GUILayout.Label("", GUILayout.Width(-18));
                     ga.SubmitFpsAverage = EditorGUILayout.Toggle("", ga.SubmitFpsAverage, GUILayout.Width(35));
                     GUILayout.Label(_gaFpsAverage);
                     GUILayout.EndHorizontal();
@@ -1523,6 +1511,21 @@ namespace GameAnalyticsSDK.Editor
                     EditorGUILayout.Space();
                     EditorGUILayout.Space();
                     EditorGUILayout.Space();
+
+                    GUILayout.BeginVertical();
+                    GUILayout.Space(-4);
+                    GUILayout.Label("IMEI", EditorStyles.largeLabel);
+                    GUILayout.EndVertical();
+
+                    EditorGUILayout.Space();
+
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label("", GUILayout.Width(-18));
+                    ga.UseIMEI = EditorGUILayout.Toggle("", ga.UseIMEI, GUILayout.Width(35));
+                    GUILayout.Label(_useIMEI);
+                    GUILayout.EndHorizontal();
+
+                    EditorGUILayout.Space();
                 }
                 #endregion // Settings.InspectorStates.Pref
             }
@@ -1591,12 +1594,7 @@ namespace GameAnalyticsSDK.Editor
 #endif
         {
 #if UNITY_2017_1_OR_NEWER
-
-#if UNITY_2017_2_OR_NEWER
             yield return www.SendWebRequest();
-#else
-            yield return www.Send();
-#endif
             while (!www.isDone)
                 yield return null;
 #else
@@ -1719,11 +1717,7 @@ namespace GameAnalyticsSDK.Editor
 #endif
         {
 #if UNITY_2017_1_OR_NEWER
-#if UNITY_2017_2_OR_NEWER
             yield return www.SendWebRequest();
-#else
-            yield return www.Send();
-#endif
             while (!www.isDone)
                 yield return null;
 #else
@@ -1824,11 +1818,7 @@ namespace GameAnalyticsSDK.Editor
 #endif
         {
 #if UNITY_2017_1_OR_NEWER
-#if UNITY_2017_2_OR_NEWER
             yield return www.SendWebRequest();
-#else
-            yield return www.Send();
-#endif
             while (!www.isDone)
                 yield return null;
 #else
@@ -2008,11 +1998,7 @@ namespace GameAnalyticsSDK.Editor
 #endif
         {
 #if UNITY_2017_1_OR_NEWER
-#if UNITY_2017_2_OR_NEWER
             yield return www.SendWebRequest();
-#else
-            yield return www.Send();
-#endif
             while (!www.isDone)
                 yield return null;
 #else
@@ -2166,11 +2152,7 @@ namespace GameAnalyticsSDK.Editor
 #endif
         {
 #if UNITY_2017_1_OR_NEWER
-#if UNITY_2017_2_OR_NEWER
             yield return www.SendWebRequest();
-#else
-            yield return www.Send();
-#endif
             while (!www.isDone)
                 yield return null;
 #else
@@ -2381,11 +2363,7 @@ namespace GameAnalyticsSDK.Editor
 #endif
         {
 #if UNITY_2017_1_OR_NEWER
-#if UNITY_2017_2_OR_NEWER
             yield return www.SendWebRequest();
-#else
-            yield return www.Send();
-#endif
             while (!www.isDone)
                 yield return null;
 #else
@@ -2437,11 +2415,7 @@ namespace GameAnalyticsSDK.Editor
 #endif
         {
 #if UNITY_2017_1_OR_NEWER
-#if UNITY_2017_2_OR_NEWER
             yield return www.SendWebRequest();
-#else
-            yield return www.Send();
-#endif
             while (!www.isDone)
                 yield return null;
 #else

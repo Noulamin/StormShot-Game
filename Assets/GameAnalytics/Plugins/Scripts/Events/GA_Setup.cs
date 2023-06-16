@@ -78,11 +78,6 @@ namespace GameAnalyticsSDK.Events
             GA_Wrapper.SetCustomDimension03(customDimension);
         }
 
-		public static void SetGlobalCustomEventFields(IDictionary<string, object> customFields)
-		{
-			GA_Wrapper.SetGlobalCustomEventFields(customFields);
-		}
-
-		#endregion
+#endregion
 	}
 }

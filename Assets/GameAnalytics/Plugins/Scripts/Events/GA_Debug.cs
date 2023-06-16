@@ -46,7 +46,9 @@ namespace GameAnalyticsSDK.Events
             if (GameAnalytics.SettingsGA != null && GameAnalytics.SettingsGA.SubmitErrors && _errorCount < MaxErrorCount && type != LogType.Log)
             {
                 if (string.IsNullOrEmpty (stackTrace)) {
-                    stackTrace = "";
+#if !UNITY_WSA && !UNITY_WP_8_1
+                    stackTrace = (new System.Diagnostics.StackTrace()).ToString ();
+#endif
                 }
                 _errorCount++;
 
@@ -55,7 +57,7 @@ namespace GameAnalyticsSDK.Events
 
                 string _message = lString + " " + sTrace;
                 if (_message.Length > 8192) {
-                    _message = _message.Substring (0, 8191);
+                    _message = _message.Substring (8192);
                 }
 
                 SubmitError(_message, type);
@@ -85,7 +87,7 @@ namespace GameAnalyticsSDK.Events
                 break;
             }
 
-            GA_Error.NewEvent(severity, message, null, false);
+            GA_Error.NewEvent(severity, message, null);
         }
 
         /// <summary>
