@@ -15,7 +15,6 @@
 using System;
 // using GoogleMobileAds.Api;
 using UnityEngine;
-using Yodo1.MAS;
 
 public class AppOpenAdManager
 {
@@ -23,76 +22,108 @@ public class AppOpenAdManager
     // public string AD_UNIT_ID => FunGamesMax._appopenAdmobAdUnitId;
 
 
-    private static AppOpenAdManager instance;
+    // private static AppOpenAdManager instance;
 
-    // COMPLETE: Add loadTime field
-    private DateTime loadTime;
+    // private AppOpenAd ad;
 
-    public static AppOpenAdManager Instance
+    // private bool isShowingAd = false;
+
+    // // COMPLETE: Add loadTime field
+    // private DateTime loadTime;
+
+    // public static AppOpenAdManager Instance
+    // {
+    //     get
+    //     {
+    //         if (instance == null)
+    //         {
+    //             instance = new AppOpenAdManager();
+    //         }
+
+    //         return instance;
+    //     }
+    // }
+
+    // private bool IsAdAvailable
+    // {
+    //     get
+    //     {
+    //         // COMPLETE: Consider ad expiration
+    //         return ad != null && (System.DateTime.UtcNow - loadTime).TotalHours < 4;
+    //     }
+    // }
+
+    // public void LoadAd()
+    // {
+    //     var request = new AdRequest.Builder().Build();
+
+    //     // Load an app open ad for portrait orientation
+    //     AppOpenAd.LoadAd(AD_UNIT_ID, Screen.orientation, request, ((appOpenAd, error) =>
+    //     {
+    //         if (error != null)
+    //         {
+    //             // Handle the error.
+    //             Debug.LogFormat("Failed to load the ad. (reason: {0})", error.LoadAdError.GetMessage());
+    //             return;
+    //         }
+    //         AdsManager.isAppOpenInitiaed = true;
+
+    //         // App open ad is loaded
+    //         ad = appOpenAd;
+    //         Debug.Log("App open ad loaded");
+
+    //         // COMPLETE: Keep track of time when the ad is loaded.
+    //         loadTime = DateTime.UtcNow;
+    //     }));
+    // }
+
+    public void ShowAdIfAvailable()
     {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new AppOpenAdManager();
-            }
+        // if (!IsAdAvailable || isShowingAd)
+        // {
+        //     return;
+        // }
 
-            return instance;
-        }
+        // ad.OnAdDidDismissFullScreenContent += HandleAdDidDismissFullScreenContent;
+        // ad.OnAdFailedToPresentFullScreenContent += HandleAdFailedToPresentFullScreenContent;
+        // ad.OnAdDidPresentFullScreenContent += HandleAdDidPresentFullScreenContent;
+        // ad.OnAdDidRecordImpression += HandleAdDidRecordImpression;
+        // ad.OnPaidEvent += HandlePaidEvent;
+
+        // ad.Show();
     }
 
+    // private void HandleAdDidDismissFullScreenContent(object sender, EventArgs args)
+    // {
+    //     Debug.Log("Closed app open ad");
+    //     // Set the ad to null to indicate that AppOpenAdManager no longer has another ad to show.
+    //     ad = null;
+    //     isShowingAd = false;
+    //     LoadAd();
+    // }
 
-    private Yodo1U3dAppOpenAd appOpenAd;
+    // private void HandleAdFailedToPresentFullScreenContent(object sender, AdErrorEventArgs args)
+    // {
+    //     Debug.LogFormat("Failed to present the ad (reason: {0})", args.AdError.GetMessage());
+    //     // Set the ad to null to indicate that AppOpenAdManager no longer has another ad to show.
+    //     ad = null;
+    //     LoadAd();
+    // }
 
-    public void Start()
-    {
-        this.RequestAppOpen();
-    }
+    // private void HandleAdDidPresentFullScreenContent(object sender, EventArgs args)
+    // {
+    //     Debug.Log("Displayed app open ad");
+    //     isShowingAd = true;
+    // }
 
-    public void ShowAppOpen()
-    {
-        appOpenAd.ShowAd();
-    }
+    // private void HandleAdDidRecordImpression(object sender, EventArgs args)
+    // {
+    //     Debug.Log("Recorded ad impression");
+    // }
 
-
-    public void RequestAppOpen()
-    {
-        appOpenAd = Yodo1U3dAppOpenAd.GetInstance();
-
-        // Ad Events
-        appOpenAd.OnAdLoadedEvent += OnAppOpenAdLoadedEvent;
-        appOpenAd.OnAdLoadFailedEvent += OnAppOpenAdLoadFailedEvent;
-        appOpenAd.OnAdOpenedEvent += OnAppOpenAdOpenedEvent;
-        appOpenAd.OnAdOpenFailedEvent += OnAppOpenAdOpenFailedEvent;
-        appOpenAd.OnAdClosedEvent += OnAppOpenAdClosedEvent;
-        appOpenAd.LoadAd();
-        AdsManager.isAppOpenInitiaed = true;
-    }
-
-    private void OnAppOpenAdLoadedEvent(Yodo1U3dAppOpenAd ad)
-    {
-        Debug.Log("[Yodo1 Mas] OnAppOpenAdLoadedEvent event received");
-        ad.ShowAd();
-    }
-
-    private void OnAppOpenAdLoadFailedEvent(Yodo1U3dAppOpenAd ad, Yodo1U3dAdError adError)
-    {
-        Debug.Log("[Yodo1 Mas] OnAppOpenAdLoadFailedEvent event received with error: " + adError.ToString());
-    }
-
-    private void OnAppOpenAdOpenedEvent(Yodo1U3dAppOpenAd ad)
-    {
-        Debug.Log("[Yodo1 Mas] OnAppOpenAdOpenedEvent event received");
-    }
-
-    private void OnAppOpenAdOpenFailedEvent(Yodo1U3dAppOpenAd ad, Yodo1U3dAdError adError)
-    {
-        Debug.Log("[Yodo1 Mas] OnAppOpenAdOpenFailedEvent event received with error: " + adError.ToString());
-    }
-
-    private void OnAppOpenAdClosedEvent(Yodo1U3dAppOpenAd ad)
-    {
-        Debug.Log("[Yodo1 Mas] OnAppOpenAdClosedEvent event received");
-    }
-
+    // private void HandlePaidEvent(object sender, AdValueEventArgs args)
+    // {
+    //     Debug.LogFormat("Received paid event. (currency: {0}, value: {1}",
+    //         args.AdValue.CurrencyCode, args.AdValue.Value);
+    // }
 }

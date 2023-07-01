@@ -1,31 +1,41 @@
 ﻿using UnityEngine;
+using System;
+// using GoogleMobileAds.Api;
+// using GoogleMobileAds.Common;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Events;
 using System.Collections;
-using Yodo1.MAS;
-
+// using GoogleMobileAds.Api;
+// using GoogleMobileAds.Common;
+// using GleyMobileAds;
 public partial class SROptions
 {
 
-    [System.ComponentModel.Category("YODO")]
-    public void ShowYODOAdInspector()
+    [System.ComponentModel.Category("Admob")]
+    public void ShowAdmobAdInspector()
     {
 
         // MobileAds.OpenAdInspector((AdError) =>
         // {
 
         // });
-        Yodo1U3dMas.ShowDebugger();
 
     }
+    [System.ComponentModel.Category("Applovin")]
+    public void ShowApplovinDebugger()
+    {
 
+        MaxSdk.ShowMediationDebugger();
+    }
 }
 public class AdsManager : MonoBehaviour
 {
 
     // public string YOUR_APP_KEY = "";
     public static event System.Action onAdmobInitialized;
+
+    public GameObject waiting;
 
     public static int timingBonus = 5;
     public static int timingBonusShowTime = 5;
@@ -34,18 +44,14 @@ public class AdsManager : MonoBehaviour
     public static int timingInterval = 180;
 
     public static bool actionTimersEnabled = false;
-    public static bool isAdmobInitialized;
+    public static bool isAdmobInitialized = FunGamesMax.isAdmobInitialized;
 
 
     // private BannerView bannerView;
-    private Yodo1U3dBannerAdView bannerAdView;
-
-    public GameObject waitingPanel;
     // public InterstitialAd interstitial;
     // public RewardedAd rewardedAd;
-
     public int bannerUnits = 10;
-    public string privacyLinks = "https://policies.google.com/privacy";
+    // public string[] privacyLinks = new string[] { "https://policies.google.com/privacy", "https://unity3d.com/legal/privacy-policy", "https://my.policy.url" };
 
     public static Action onRewardedAdClosed, onUserEarnedReward;
     public static AdsManager Instance;
@@ -55,53 +61,38 @@ public class AdsManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            // FunGamesMax.bannerPosition = MaxSdkBase.BannerPosition.BottomCenter;
-            // FunGamesMax.OnFunGamesInitialized += Init;
-            Yodo1U3dInterstitialAd.GetInstance().autoDelayIfLoadFail = true;
-            Yodo1AdBuildConfig config =
-            new Yodo1AdBuildConfig().enableUserPrivacyDialog(true).privacyPolicyUrl
-            (privacyLinks);
-            Yodo1U3dMas.SetAdBuildConfig(config);
-
+            FunGamesMax.bannerPosition = MaxSdkBase.BannerPosition.BottomCenter;
+            FunGamesMax.OnFunGamesInitialized += Init;
             DontDestroyOnLoad(gameObject);
             return;
         }
-
+        // AdsManager.Instance.ShowBanner();
         Destroy(gameObject);
-    }
-
-    private void OnEnable()
-    {
-        UnityEngine.SceneManagement.SceneManager.activeSceneChanged += (SceneOld, SceneNew) =>
-        {
-            Init();
-        };
     }
 
 
 
     private void Start()
     {
-        Yodo1U3dMasCallback.OnSdkInitializedEvent += (success, error) =>
-        {
-            print("[Yodo1 Mas] OnSdkInitializedEvent, success:" + success + ", error: " + error.ToString());
-            if (success)
-            {
-                print("[Yodo1 Mas] The initialization has succeeded");
-                isAdmobInitialized = true;
-                Init();
-            }
-            else
-            {
-                print("[Yodo1 Mas] The initialization has failed");
-            }
-        };
-        Yodo1U3dMas.InitializeMasSdk();
+        // Debug.Log("Terms of Service has been accepted: " + SimpleGDPR.IsTermsOfServiceAccepted);
+        // Debug.Log("Ads personalization consent state: " + SimpleGDPR.GetConsentState(ADS_PERSONALIZATION_CONSENT));
+        // Debug.Log("Is user possibly located in the EEA: " + SimpleGDPR.IsGDPRApplicable);
+        // if (PlayerPrefs.GetInt("GDPR", 0) > 0)
+        // {
+        //     IronSource.Agent.setConsent(PlayerPrefs.GetInt("GDPR") == 1);
+        //     Init();
+        // }
+        // else
+        // {
+        //     StartCoroutine(ShowGDPRConsentDialogAndWait());
+        // }
+
+
     }
 
     void Init()
     {
-        print("AdsManager :: Init");
+        Debug.Log("AdsManager :: Init");
         // IronSourceEvents.onSdkInitializationCompletedEvent += SdkInitializationCompletedEvent;
         // // IronSource.Agent.init(IronSourceAdUnits.BANNER);
         // IronSourceInitilizer.AutoInitialize();
@@ -115,8 +106,53 @@ public class AdsManager : MonoBehaviour
 
     private void UnityAnalyticsButtonClicked()
     {
-
+        // Fetch the URL of the page that allows the user to toggle the Unity Analytics consent
+        // "Unity Data Privacy Plug-in" is required: https://assetstore.unity.com/packages/add-ons/services/unity-data-privacy-plug-in-118922
+#if !UNITY_5_3_OR_NEWER && !UNITY_5_2 // Initialize must be called on Unity 5.1 or earlier
+        //UnityEngine.Analytics.DataPrivacy.Initialize();
+#endif
+        //UnityEngine.Analytics.DataPrivacy.FetchPrivacyUrl( 
+        //	( url ) => SimpleGDPR.OpenURL( url ), // On WebGL, this opens the URL in a new tab
+        //	( error ) => Debug.LogError( "Couldn't fetch url: " + error ) );
     }
+
+
+
+    // private NativeAd nativeAd;
+
+
+    // public void RequestNativeAd(System.Action<NativeAd> loadedCallback,System.Action onFaild) {
+    //     if(!FunGamesMax._USE_Native_ADMOBOnly){
+    //         onFaild?.Invoke();
+    //         return;
+    //     }
+    //     AdLoader adLoader = new AdLoader.Builder(FunGamesMax._nativeAdmobAdUnitId)
+    //         .ForNativeAd()
+    //         .Build();
+    //     var func = new System.EventHandler<NativeAdEventArgs>((sender,args)=>{
+    //         Debug.Log("Native ad loaded.");
+    //         this.nativeAd = args.nativeAd;
+    //         loadedCallback?.Invoke(nativeAd);
+    //         FunGamesMax.printApplovinAdInfo<string, string>("Native Ad loaded", args.nativeAd.ToString(),"");
+
+    //     });
+    //     var faild = new System.EventHandler<AdFailedToLoadEventArgs >((sender,args)=>{
+    //         FunGamesMax.printApplovinAdInfo<ResponseInfo,string>("Native Ad Load Failed Event",args.LoadAdError.GetResponseInfo(),args.LoadAdError.GetMessage());
+    //         Debug.Log("Native ad failed to load: " + args.LoadAdError.GetMessage());
+    //         onFaild?.Invoke();
+    //     });
+    //     adLoader.OnNativeAdLoaded += func;
+    //     adLoader.OnAdFailedToLoad += faild;
+    //     adLoader.LoadAd(new AdRequest.Builder().Build());
+    // }
+
+
+    // private void HandleNativeAdLoaded(object sender, NativeAdEventArgs args) {
+    // }
+
+
+
+
 
 
     private void SdkInitializationCompletedEvent()
@@ -134,33 +170,26 @@ public class AdsManager : MonoBehaviour
         //     {
         //         Invoke("initAppOpen", 0.1f);
         //     }
-        //     FunGamesMax.isAdmobInitialized = true;
-        //     if (FunGamesMax._USE_BANNER_ADMOBOnly)
-        //     {
-        //         FunGamesMax.InitializeBannerAds();
-        //     }
-        //     else
-        //     {
-        //         Invoke("ShowBanner", 0.2f);
-        //     }
-        //     onAdmobInitialized?.Invoke();
+        FunGamesMax.isAdmobInitialized = true;
+        // if (FunGamesMax._USE_BANNER_ADMOBOnly)
+        // {
+        //     FunGamesMax.InitializeBannerAds();
+        // }
+        // else
+        // {
+        FunGamesMax.loadAppOpen();
+        Invoke("initAppOpen", 2f);
+        Invoke("ShowBanner", 1f);
+        // }
+        onAdmobInitialized?.Invoke();
         // });
-        if (!AppOpenInitialized)
-        {
-            AppOpenAdManager.Instance.RequestAppOpen();
-            OnAppStateChanged();
-            AppOpenInitialized = true;
-        }
-        InitializeInterstitial();
-        this.InitializeRewardedAds();
-        Yodo1U3dInterstitialAd.GetInstance().LoadAd();
-        Yodo1U3dRewardAd.GetInstance().LoadAd();
     }
-    public static bool AppOpenInitialized;
     void initAppOpen()
     {
         // AppOpenAdManager.Instance.LoadAd();
         // AppStateEventNotifier.AppStateChanged += InonAppStateChanged;
+        OnAppStateChanged();
+
     }
 
     public static bool isAppOpenInitiaed;
@@ -169,133 +198,61 @@ public class AdsManager : MonoBehaviour
 
         // if (!FunGamesMax._USE_APPOPEN_ADMOBOnly)
         // {
-        //     FunGamesMax.showAppOpen();
+        FunGamesMax.showAppOpen();
+        // FunGamesMax.showAppOpen();
         // }
         // else
         // {
         //     InonAppStateChanged();
         // }
         // COMPLETE: Show an app open ad if available.
-        AppOpenAdManager.Instance.ShowAppOpen();
 
     }
-    void InonAppStateChanged()
-    {
-        // if (state == AppState.Foreground)
-        // {
-        //     // COMPLETE: Show an app open ad if available.
-        //     AppOpenAdManager.Instance.ShowAdIfAvailable();
-        // }
-    }
+    // void InonAppStateChanged(AppState state = AppState.Foreground)
+    // {
+    //     if (state == AppState.Foreground)
+    //     {
+    //         // COMPLETE: Show an app open ad if available.
+    //         AppOpenAdManager.Instance.ShowAdIfAvailable();
+    //     }
+    // }
 
 
-    private void InitializeInterstitial()
-    {
-        // Instantiate
-        Yodo1U3dInterstitialAd.GetInstance();
 
-        // Ad Events
-        Yodo1U3dInterstitialAd.GetInstance().OnAdLoadedEvent += OnInterstitialAdLoadedEvent;
-        Yodo1U3dInterstitialAd.GetInstance().OnAdLoadFailedEvent += OnInterstitialAdLoadFailedEvent;
-        Yodo1U3dInterstitialAd.GetInstance().OnAdOpenedEvent += OnInterstitialAdOpenedEvent;
-        Yodo1U3dInterstitialAd.GetInstance().OnAdOpenFailedEvent += OnInterstitialAdOpenFailedEvent;
-        Yodo1U3dInterstitialAd.GetInstance().OnAdClosedEvent += OnInterstitialAdClosedEvent;
-    }
 
-    private void OnInterstitialAdLoadedEvent(Yodo1U3dInterstitialAd ad)
-    {
-        print("[Yodo1 Mas] OnInterstitialAdLoadedEvent event received");
-    }
 
-    private void OnInterstitialAdLoadFailedEvent(Yodo1U3dInterstitialAd ad, Yodo1U3dAdError adError)
-    {
-        print("[Yodo1 Mas] OnInterstitialAdLoadFailedEvent event received with error: " + adError.ToString());
-    }
 
-    private void OnInterstitialAdOpenedEvent(Yodo1U3dInterstitialAd ad)
-    {
-        print("[Yodo1 Mas] OnInterstitialAdOpenedEvent event received");
-    }
 
-    private void OnInterstitialAdOpenFailedEvent(Yodo1U3dInterstitialAd ad, Yodo1U3dAdError adError)
-    {
-        print("[Yodo1 Mas] OnInterstitialAdOpenFailedEvent event received with error: " + adError.ToString());
-        // Load the next ad
-        Yodo1U3dInterstitialAd.GetInstance().LoadAd();
-        waitingPanel.SetActive(false);
-        _onClosed?.Invoke();
-        _onClosed = null;
-    }
 
-    private void OnInterstitialAdClosedEvent(Yodo1U3dInterstitialAd ad)
-    {
-        print("[Yodo1 Mas] OnInterstitialAdClosedEvent event received");
-        waitingPanel.SetActive(false);
-        _onClosed?.Invoke();
-        _onClosed = null;
-        // Load the next ad
-        Yodo1U3dInterstitialAd.GetInstance().LoadAd();
-    }
+
+
+
+
 
     public void ShowBanner()
     {
+        // if (bannerView != null) bannerView.Show();
+        // else RequestBanner();
+        // Advertisements.Instance.ShowBanner(BannerPosition.TOP);
 
         bannerShow = true;
-        // Clean up banner before reusing
-        if (bannerAdView != null)
-        {
-            bannerAdView.Destroy();
-        }
 
-        // Create a 320x50 banner at top of the screen
-        bannerAdView = new Yodo1U3dBannerAdView(Yodo1U3dBannerAdSize.Banner, Yodo1U3dBannerAdPosition.BannerBottom | Yodo1U3dBannerAdPosition.BannerHorizontalCenter);
-
-        // Ad Events
-        bannerAdView.OnAdLoadedEvent += OnBannerAdLoadedEvent;
-        bannerAdView.OnAdFailedToLoadEvent += OnBannerAdFailedToLoadEvent;
-        bannerAdView.OnAdOpenedEvent += OnBannerAdOpenedEvent;
-        bannerAdView.OnAdFailedToOpenEvent += OnBannerAdFailedToOpenEvent;
-        bannerAdView.OnAdClosedEvent += OnBannerAdClosedEvent;
-
-        bannerAdView.LoadAd();
-        // FunGamesMax.BannerIsLoaded("");
-        // FunGamesMax.ShowBannerAd();
+        FunGamesMax.BannerIsLoaded("");
+        FunGamesMax.ShowBannerAd();
 
 
 
     }
     bool bannerShow;
-    private void OnBannerAdLoadedEvent(Yodo1U3dBannerAdView adView)
-    {
-        // Banner ad is ready to be shown.
-        print("[Yodo1 Mas] OnBannerAdLoadedEvent event received");
-    }
-
-    private void OnBannerAdFailedToLoadEvent(Yodo1U3dBannerAdView adView, Yodo1U3dAdError adError)
-    {
-        print("[Yodo1 Mas] OnBannerAdFailedToLoadEvent event received with error: " + adError.ToString());
-    }
-
-    private void OnBannerAdOpenedEvent(Yodo1U3dBannerAdView adView)
-    {
-        print("[Yodo1 Mas] OnBannerAdOpenedEvent event received");
-    }
-
-    private void OnBannerAdFailedToOpenEvent(Yodo1U3dBannerAdView adView, Yodo1U3dAdError adError)
-    {
-        print("[Yodo1 Mas] OnBannerAdFailedToOpenEvent event received with error: " + adError.ToString());
-    }
-
-    private void OnBannerAdClosedEvent(Yodo1U3dBannerAdView adView)
-    {
-        print("[Yodo1 Mas] OnBannerAdClosedEvent event received");
-    }
     public void HideBanner()
     {
         bannerShow = false;
-        bannerAdView.Destroy();
-        bannerAdView = null;
-        // FunGamesMax.HideBannerAd();
+        // if (bannerView != null) bannerView.Show();
+        // else RequestBanner();
+        // Advertisements.Instance.HideBanner();
+        print("hid banner");
+
+        FunGamesMax.HideBannerAd();
 
     }
 
@@ -307,20 +264,60 @@ public class AdsManager : MonoBehaviour
     }
     public int CalcBannerHeight(int height)
     {
+        // print("HEIGHT SET : " + height);
+        // float h = bannerUnits;
+        // var ba = Advertisements.Instance.GetBannerAdvertisers();
+        // float b = 0;
+        // if (ba.Count > 0)
+        // {
+        //     // Debug.Log(ba[0].advertiserScript.GetTransfrom(), ba[0].advertiserScript.GetTransfrom());
+        //     b = ba[0].advertiserScript.GetPixelHeight();
+        //     for (int i = 0; i < ba.Count; i++)
+        //     {
+        //         if (b < ba[0].advertiserScript.GetPixelHeight())
+        //         {
+        //             b = ba[0].advertiserScript.GetPixelHeight();
+        //         }
+        //     }
+        //     if (b == 0)
+        //     {
+        //         b = height / bannerUnits;
+        //     }
+        //     if (b == 0)
+        //     {
+        //         b = 200;
+        //     }
+        //     h = 10 + b * 1.5f;
+        //     print(b);
+        // }
+        // else
+        // {
+        //     b = height / bannerUnits;
+        //     if (b == 0)
+        //     {
+        //         b = 200;
+        //     }
+        //     h = b;
+        // }
+        // var bi = GameObject.FindWithTag("BANNER");
+        // if (bi != null)
+        // {
+        //     if (h < bi.transform.GetChild(0).GetComponent<RectTransform>().rect.height)
+        //     {
+        //         h = bi.transform.GetChild(0).GetComponent<RectTransform>().rect.height + 10;
+        //     }
 
+        // }
         return 0;
     }
     public void setPanelBanner(Vector2 orgSize, RectTransform rectTransform)
     {
 
         var pivotOrg = rectTransform.pivot;
-        float bannerHeight = 200;
-        // var bannerHeight = MaxSdkUtils.GetAdaptiveBannerHeight();
+        var bannerHeight = MaxSdkUtils.GetAdaptiveBannerHeight();
 
-        // if (FunGamesMax.IsBannerLoaded)
-        //     bannerHeight = 200;
-        // else
-        //     bannerHeight = 0;
+        bannerHeight = 200;
+
 
         // if (FunGamesMax._USE_BANNER_ADMOBOnly)
         // {
@@ -335,11 +332,11 @@ public class AdsManager : MonoBehaviour
             }
         }
         rectTransform.sizeDelta = orgSize;
-        // if (FunGamesMax.bannerPosition == MaxSdkBase.BannerPosition.TopCenter)
-        // {
-        //     rectTransform.pivot = new Vector2(0, pivotOrg.y);
-        // }
-        // else
+        if (FunGamesMax.bannerPosition == MaxSdkBase.BannerPosition.TopCenter)
+        {
+            rectTransform.pivot = new Vector2(0, pivotOrg.y);
+        }
+        else
         {
             rectTransform.pivot = new Vector2(1, pivotOrg.y);
         }
@@ -349,92 +346,112 @@ public class AdsManager : MonoBehaviour
         rectTransform.pivot = pivotOrg;
     }
 
-
+    // public BannerPosition GetBannerPosition()
+    // {
+    //     return BannerPosition.BOTTOM;
+    // }
 
 
     public void DestroyBanner()
     {
-
+        // Advertisements.Instance.HideBanner();
+        // if (bannerView != null)
+        // {
+        //     bannerView.Destroy();
+        //     bannerView = null;
+        // }
         HideBanner();
     }
 
     public bool HasInterstitial()
     {
-        var bol = Yodo1U3dInterstitialAd.GetInstance().IsLoaded();
+        print("wait thread : " + waiteThread);
+        var bol = FunGamesMax.HasInterstitial() && !waiteThread;
 
         print("HAS INTERSTITIAL : " + bol);
         return bol;
     }
 
     System.Action _onClosed;
+    static bool waiteThread;
     void _showInterstitial(System.Action onClosed)
     {
-
-        // FunGamesMax.ShowAd(false, (s) =>
-        // {
-
-        //     onClosed?.Invoke();
-        // });
-        bool isLoaded = Yodo1U3dInterstitialAd.GetInstance().IsLoaded();
-        print("start show interstitial");
-        delayAction(() =>
+        waiteThread = true;
+        waiting.SetActive(true);
+        waitingFor(() =>
         {
-            _onClosed = onClosed;
 
-            if (isLoaded) Yodo1U3dInterstitialAd.GetInstance().ShowAd(); else waitingPanel.SetActive(false);
+            FunGamesMax.ShowAd(false, (s) =>
+            {
+                waiting.SetActive(false);
+                waiteThread = false;
+                onClosed?.Invoke();
+            });
         });
 
     }
-    void delayAction(Action callback)
+    void waitingFor(Action clb)
     {
-        if (waitingPanel.activeInHierarchy)
-        {
-            return;
-        }
-        waitingPanel.SetActive(true);
-        // StopAllCoroutines();
-        StartCoroutine(_delayAction(callback));
+        StartCoroutine(waitingEnum(clb));
     }
-
-    IEnumerator _delayAction(Action callback)
+    IEnumerator waitingEnum(Action clb)
     {
         yield return new WaitForSecondsRealtime(3);
-        callback?.Invoke();
+        clb?.Invoke();
     }
 
     public bool ShowInterstitial()
     {
-        if (Time.time < timer)
+        if (Time.unscaledTime < timer)
         {
-            print(Time.time + "// " + timer);
+            print(Time.unscaledTime + "// " + timer);
             return false;
         }
         if (HasInterstitial())
         {
             _showInterstitial(() =>
             {
-                timer = Time.time + MaxTime;
+                timer = Time.unscaledTime + MaxTime;
             });
         }
-
+        /* if (Advertisements.Instance.IsInterstitialAvailable())
+        {
+            Advertisements.Instance.ShowInterstitial(() =>
+            {
+                //CUtils.SetActionTime("show_ads");
+                timer = Time.unscaledTime + MaxTime;
+            });
+            return true;
+        } */
         return false;
     }
-    public const float MaxTime = 25;
+    public const float MaxTime = 35;
     public static float timer = MaxTime / 2;
     public void ShowInterstitialTimer(Action action)
     {
-        if (Time.time < timer)
+        if (Time.unscaledTime < timer)
         {
-            print(Time.time + "// " + timer);
+            print(Time.unscaledTime + "// " + timer);
             action?.Invoke();
             return;
         }
 
-
+        /* if (Advertisements.Instance.IsInterstitialAvailable())
+        {
+            Advertisements.Instance.ShowInterstitial(() =>
+            {
+                //CUtils.SetActionTime("show_ads");
+                action?.Invoke();
+                timer = Time.unscaledTime + MaxTime;
+            });
+        } */
         if (HasInterstitial())
         {
-            _showInterstitial(action);
-            timer = Time.time + MaxTime;
+            _showInterstitial(() =>
+            {
+                timer = Time.unscaledTime + MaxTime;
+                action?.Invoke();
+            });
 
         }
         else
@@ -446,85 +463,40 @@ public class AdsManager : MonoBehaviour
 
     public bool HasRewardedVideo()
     {
-        var bol = Yodo1U3dRewardAd.GetInstance().IsLoaded();
+        var bol = FunGamesMax.IsRewardedAdReady();
 
         print("HAS REWARD : " + bol);
         return bol;
-        // return false;
     }
-
-    private void InitializeRewardedAds()
-    {
-        // Instantiate
-        Yodo1U3dRewardAd.GetInstance();
-
-        // Ad Events
-        Yodo1U3dRewardAd.GetInstance().OnAdLoadedEvent += OnRewardAdLoadedEvent;
-        Yodo1U3dRewardAd.GetInstance().OnAdLoadFailedEvent += OnRewardAdLoadFailedEvent;
-        Yodo1U3dRewardAd.GetInstance().OnAdOpenedEvent += OnRewardAdOpenedEvent;
-        Yodo1U3dRewardAd.GetInstance().OnAdOpenFailedEvent += OnRewardAdOpenFailedEvent;
-        Yodo1U3dRewardAd.GetInstance().OnAdClosedEvent += OnRewardAdClosedEvent;
-        Yodo1U3dRewardAd.GetInstance().OnAdEarnedEvent += OnRewardAdEarnedEvent;
-    }
-
-    private void OnRewardAdLoadedEvent(Yodo1U3dRewardAd ad)
-    {
-        print("[Yodo1 Mas] OnRewardAdLoadedEvent event received");
-    }
-
-    private void OnRewardAdLoadFailedEvent(Yodo1U3dRewardAd ad, Yodo1U3dAdError adError)
-    {
-        print("[Yodo1 Mas] OnRewardAdLoadFailedEvent event received with error: " + adError.ToString());
-    }
-
-    private void OnRewardAdOpenedEvent(Yodo1U3dRewardAd ad)
-    {
-        print("[Yodo1 Mas] OnRewardAdOpenedEvent event received");
-    }
-
-    private void OnRewardAdOpenFailedEvent(Yodo1U3dRewardAd ad, Yodo1U3dAdError adError)
-    {
-        print("[Yodo1 Mas] OnRewardAdOpenFailedEvent event received with error: " + adError.ToString());
-        // Load the next ad
-        Yodo1U3dRewardAd.GetInstance().LoadAd();
-        _ClosedAd?.Invoke(false);
-        _ClosedAd = null;
-    }
-
-    private void OnRewardAdClosedEvent(Yodo1U3dRewardAd ad)
-    {
-        print("[Yodo1 Mas] OnRewardAdClosedEvent event received");
-        // Load the next ad
-        Yodo1U3dRewardAd.GetInstance().LoadAd();
-    }
-
-    private void OnRewardAdEarnedEvent(Yodo1U3dRewardAd ad)
-    {
-        print("[Yodo1 Mas] OnRewardAdEarnedEvent event received");
-        // Add your reward code here
-        _ClosedAd?.Invoke(true);
-        _ClosedAd = null;
-    }
-
     System.Action<bool> _ClosedAd;
     void _showRewardedVideo(System.Action<bool> ClosedAd)
     {
 
-        // FunGamesMax.ShowAd(true, (s) =>
-        // {
-        //     ClosedAd?.Invoke(s != FunGamesMax.AdState.failed);
-        // });
-        _ClosedAd = ClosedAd;
-        bool isLoaded = Yodo1U3dRewardAd.GetInstance().IsLoaded();
-
-        if (isLoaded) Yodo1U3dRewardAd.GetInstance().ShowAd();
+        FunGamesMax.ShowAd(true, (s) =>
+        {
+            ClosedAd?.Invoke(s != FunGamesMax.AdState.failed);
+        });
 
 
     }
 
     public bool ShowRewardedAd()
     {
+        /* if (Advertisements.Instance.IsRewardVideoAvailable())
+        {
+            Advertisements.Instance.ShowRewardedVideo((b) =>
+            {
+                if (b)
+                {
+                    onUserEarnedReward?.Invoke();
+                    print("HandleRewardedAdRewarded event received for ");
+                }
+                onRewardedAdClosed?.Invoke();
 
+            });
+            return true;
+        }
+        else */
         if (HasRewardedVideo())
         {
             _showRewardedVideo((b) =>
@@ -545,25 +517,14 @@ public class AdsManager : MonoBehaviour
             return false;
         }
     }
-    public bool OnShowAd;
     public void ShowIntersitial(UnityAction CompleteMethod)
     {
-        if (OnShowAd)
-        {
-            return;
-        }
-        OnShowAd = true;
         if (HasInterstitial())
         {
-            _showInterstitial(() =>
-            {
-                OnShowAd = false;
-                CompleteMethod?.Invoke();
-            });
+            _showInterstitial(() => { CompleteMethod?.Invoke(); });
         }
         else
         {
-            OnShowAd = false;
             CompleteMethod?.Invoke();
         }
     }
@@ -581,10 +542,7 @@ public class AdsManager : MonoBehaviour
 
     void OnApplicationPause(bool isPaused)
     {
-        if (!isPaused && isAppOpenInitiaed)
-        {
-            OnAppStateChanged();
-        }
+
     }
 
 }

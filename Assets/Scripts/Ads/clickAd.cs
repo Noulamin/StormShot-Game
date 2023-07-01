@@ -3,15 +3,15 @@ using UnityEngine.UI;
 
 public class clickAd : MonoBehaviour
 {
-    public Button.ButtonClickedEvent clickedEvent;
+    public UnityEngine.UI.Button.ButtonClickedEvent clickedEvent;
     private void OnEnable()
     {
-        var b = GetComponent<Button>();
+        var b = GetComponent<UnityEngine.UI.Button>();
         b.onClick.AddListener(showAd);
     }
     private void OnDisable()
     {
-        var b = GetComponent<Button>();
+        var b = GetComponent<UnityEngine.UI.Button>();
         b.onClick.RemoveListener(showAd);
     }
 

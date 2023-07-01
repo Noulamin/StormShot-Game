@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d367e89d23b4adab346e952fe8be86, type: 3}
+  m_Name: FunGamesSettings
+  m_EditorClassIdentifier: 
+  version: 2.5
+  useATTPopup: 1
+  usePushNotifications: 0
+  useGameAnalytics: 0
+  gameAnalyticsIosGameKey: 
+  gameAnalyticsIosSecretKey: 
+  gameAnalyticsAndroidGameKey: 
+  gameAnalyticsAndroidSecretKey: 
+  useTenjin: 0
+  tenjinApiKey: TY9WX3K6HCNJPIXYZB6ZN2RPPZEAM7QJ
+  playLocalVideos: 0
+  playRemoteVideos: 0
+  useOgury: 0
+  oguryIOSAssetKey: 
+  iOSThumbnailAdUnitId: 
+  oguryAndroidAssetKey: 
+  androidThumbnailAdUnitId: 
+  useGdpr: 0
+  useMax: 1
+  maxSdkKey: zEt4_M4PkG_cNWU_sR4p4RXZ6mE5AO4RAx8SQs1BVTZR5iMfLP54K_p1L4C6x88exH8F__Tr3QQ0TgrAyzCiPq
+  iOSInterstitialAdUnitId: 7f8178fb3d914704
+  iOSRewardedAdUnitId: 752466d867542e12
+  iOSBannerAdUnitId: d8435dbe5f919cf5
+  IOSAppopenAdUnitId: 30be2635e625dbd7
+  androidInterstitialAdUnitId: 6312eef946f792f2
+  androidRewardedAdUnitId: a1ca5d7c989c0664
+  androidBannerAdUnitId: 898da242efe287dc
+  androidAppopenAdUnitId: 13acf7fa70a447e0

@@ -10,6 +10,7 @@ TagManager:
   - Home
   - Levels
   - Canvas
+  - banner
   layers:
   - Default
   - TransparentFX
