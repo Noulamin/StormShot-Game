@@ -96,7 +96,7 @@ namespace FunGamesSdk
         public bool useGdpr;
 
 
-        // [Header("Admob")]
+        [Header("Google Admob")]
         // [Tooltip("Use Appopen Admob Only it will Disable Applovin AppOpen From Showing")]
         // public bool Use_Appopen_AdmobOnly;
         // public string IOSAppopenAdmobAdUnitId = "ca-app-pub-3940256099942544/3419835294";
@@ -104,6 +104,17 @@ namespace FunGamesSdk
         // public bool Use_Banner_AdmobOnly;
         // public string IOSBannerAdmobAdUnitId = "ca-app-pub-3940256099942544/6300978111";
         // public string androidBannerAdmobAdUnitId = "ca-app-pub-3940256099942544/6300978111";
+        [Header("Admob iOS")]
+        public string AdmobiOSInterstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
+        public string AdmobiOSRewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
+        public string AdmobiOSBannerAdUnitId = "ca-app-pub-3940256099942544/6300978111";
+        public string AdmobIOSAppopenAdUnitId = "ca-app-pub-3940256099942544/3419835294";
+
+        [Header("Admob Android")]
+        public string AdmobandroidInterstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
+        public string AdmobandroidRewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
+        public string AdmobandroidBannerAdUnitId = "ca-app-pub-3940256099942544/6300978111";
+        public string AdmobandroidAppopenAdUnitId = "ca-app-pub-3940256099942544/3419835294";
         [Header("Applovin Max")]
 
         [Tooltip("Use Max")]

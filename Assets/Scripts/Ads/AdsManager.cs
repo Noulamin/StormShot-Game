@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.Events;
 using System.Collections;
-// using GoogleMobileAds.Api;
+using GoogleMobileAds.Api;
 // using GoogleMobileAds.Common;
 // using GleyMobileAds;
 public partial class SROptions
@@ -16,10 +16,10 @@ public partial class SROptions
     public void ShowAdmobAdInspector()
     {
 
-        // MobileAds.OpenAdInspector((AdError) =>
-        // {
+        MobileAds.OpenAdInspector((AdError) =>
+        {
 
-        // });
+        });
 
     }
     [System.ComponentModel.Category("Applovin")]
@@ -44,7 +44,7 @@ public class AdsManager : MonoBehaviour
     public static int timingInterval = 180;
 
     public static bool actionTimersEnabled = false;
-    public static bool isAdmobInitialized = FunGamesMax.isAdmobInitialized;
+    // public static bool isAdmobInitialized = FunGamesMax.isAdmobInitialized;
 
 
     // private BannerView bannerView;
@@ -61,7 +61,7 @@ public class AdsManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            FunGamesMax.bannerPosition = MaxSdkBase.BannerPosition.BottomCenter;
+            FunGamesMax.bannerPosition = BannerPosition.BOTTOM;
             FunGamesMax.OnFunGamesInitialized += Init;
             DontDestroyOnLoad(gameObject);
             return;
@@ -170,7 +170,7 @@ public class AdsManager : MonoBehaviour
         //     {
         //         Invoke("initAppOpen", 0.1f);
         //     }
-        FunGamesMax.isAdmobInitialized = true;
+        // FunGamesMax.isAdmobInitialized = true;
         // if (FunGamesMax._USE_BANNER_ADMOBOnly)
         // {
         //     FunGamesMax.InitializeBannerAds();
@@ -332,7 +332,7 @@ public class AdsManager : MonoBehaviour
             }
         }
         rectTransform.sizeDelta = orgSize;
-        if (FunGamesMax.bannerPosition == MaxSdkBase.BannerPosition.TopCenter)
+        if (FunGamesMax.bannerPosition == BannerPosition.TOP)
         {
             rectTransform.pivot = new Vector2(0, pivotOrg.y);
         }

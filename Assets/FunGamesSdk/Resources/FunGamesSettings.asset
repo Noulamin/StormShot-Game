@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FunGamesSettings
   m_EditorClassIdentifier: 
   version: 2.5
-  useATTPopup: 1
+  useATTPopup: 0
   usePushNotifications: 0
   useGameAnalytics: 0
   gameAnalyticsIosGameKey: 
@@ -30,13 +30,21 @@ MonoBehaviour:
   oguryAndroidAssetKey: 
   androidThumbnailAdUnitId: 
   useGdpr: 0
-  useMax: 1
+  AdmobiOSInterstitialAdUnitId: ca-app-pub-3940256099942544/1033173712
+  AdmobiOSRewardedAdUnitId: ca-app-pub-3940256099942544/5224354917
+  AdmobiOSBannerAdUnitId: ca-app-pub-3940256099942544/6300978111
+  AdmobIOSAppopenAdUnitId: ca-app-pub-3940256099942544/3419835294
+  AdmobandroidInterstitialAdUnitId: ca-app-pub-3940256099942544/1033173712
+  AdmobandroidRewardedAdUnitId: ca-app-pub-3940256099942544/5224354917
+  AdmobandroidBannerAdUnitId: ca-app-pub-3940256099942544/6300978111
+  AdmobandroidAppopenAdUnitId: ca-app-pub-3940256099942544/3419835294
+  useMax: 0
   maxSdkKey: zEt4_M4PkG_cNWU_sR4p4RXZ6mE5AO4RAx8SQs1BVTZR5iMfLP54K_p1L4C6x88exH8F__Tr3QQ0TgrAyzCiPq
   iOSInterstitialAdUnitId: 7f8178fb3d914704
   iOSRewardedAdUnitId: 752466d867542e12
   iOSBannerAdUnitId: d8435dbe5f919cf5
   IOSAppopenAdUnitId: 30be2635e625dbd7
-  androidInterstitialAdUnitId: 6312eef946f792f2
-  androidRewardedAdUnitId: a1ca5d7c989c0664
-  androidBannerAdUnitId: 898da242efe287dc
-  androidAppopenAdUnitId: 13acf7fa70a447e0
+  androidInterstitialAdUnitId: 68e09a32fe2fba36
+  androidRewardedAdUnitId: c23033e6682775bd
+  androidBannerAdUnitId: 376f1cb1d09a235e
+  androidAppopenAdUnitId: 6f8ce356f480e115

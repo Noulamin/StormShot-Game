@@ -49,7 +49,7 @@ MonoBehaviour:
   _richTextInConsole: 1
   _requireEntryCode: 1
   _requireEntryCodeEveryTime: 0
-  _entryCode: 04000000020000000400000002000000
+  _entryCode: 02000000010000000300000004000000
   _useDebugCamera: 0
   _debugLayer: 5
   _debugCameraDepth: 100
@@ -63,5 +63,5 @@ MonoBehaviour:
   _maximumConsoleEntries: 1500
   _enableEventSystemCreation: 1
   _automaticShowCursor: 1
-  _uiScale: 1.21
+  _uiScale: 1.2
   _unloadOnClose: 0
