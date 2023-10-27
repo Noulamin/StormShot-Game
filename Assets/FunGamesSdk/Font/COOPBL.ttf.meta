@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1ada3c235439413b8a4d43d637b0d911
+timeCreated: 1680095309
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  fontName: "COOPBL"
+  fontNames:
+  - Cooper Black
+  fallbackFontReferences: []
+  customCharacters:
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData:
+  assetBundleName: 
+  assetBundleVariant: 
