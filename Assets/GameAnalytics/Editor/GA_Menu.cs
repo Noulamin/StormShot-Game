@@ -32,7 +32,7 @@ namespace GameAnalyticsSDK.Editor
         {
             if (Object.FindObjectOfType (typeof(GameAnalytics)) == null)
             {
-                GameObject go = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath(GameAnalytics.WhereIs("GameAnalytics.prefab"), typeof(GameObject))) as GameObject;
+                GameObject go = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath(GameAnalytics.WhereIs("GameAnalytics.prefab", "Prefab"), typeof(GameObject))) as GameObject;
                 go.name = "GameAnalytics";
                 Selection.activeObject = go;
                 Undo.RegisterCreatedObjectUndo(go, "Created GameAnalytics Object");
@@ -53,23 +53,26 @@ namespace GameAnalyticsSDK.Editor
             string replaceText = "#if true";
 
             string[] _files = new string[] {
-                "/GameAnalytics/Plugins/Playmaker/GAInitialize.cs",
-                "/GameAnalytics/Plugins/Playmaker/GetCommandCenterValueAsString.cs",
-                "/GameAnalytics/Plugins/Playmaker/IsCommandCenterReady.cs",
-                "/GameAnalytics/Plugins/Playmaker/SendBusinessEvent.cs",
-                "/GameAnalytics/Plugins/Playmaker/SendDesignEvent.cs",
-                "/GameAnalytics/Plugins/Playmaker/SendErrorEvent.cs",
-                "/GameAnalytics/Plugins/Playmaker/SendProgressionEvent.cs",
-                "/GameAnalytics/Plugins/Playmaker/SendResourceEvent.cs",
-                "/GameAnalytics/Plugins/Playmaker/SetCustomDimension.cs",
-                "/GameAnalytics/Plugins/Playmaker/Editor/SendProgressionEventActionEditor.cs",
-                "/GameAnalytics/Plugins/Playmaker/Editor/SendResourceEventActionEditor.cs"
+                "GAInitialize.cs",
+                "GetABTestingId.cs",
+                "GetABTestingVariantId.cs",
+                "GetRemoteConfigsValueAsString.cs",
+                "IsRemoteConfigsReady.cs",
+                "SendAdEvent.cs",
+                "SendBusinessEvent.cs",
+                "SendDesignEvent.cs",
+                "SendErrorEvent.cs",
+                "SendProgressionEvent.cs",
+                "SendResourceEvent.cs",
+                "SetCustomDimension.cs",
+                "SendProgressionEventActionEditor.cs",
+                "SendResourceEventActionEditor.cs"
             };
 
             foreach(string _file in _files)
             {
                 try {
-                    enabled = ReplaceInFile (Application.dataPath + _file, searchText, replaceText);
+                    enabled = ReplaceInFile (GameAnalytics.WhereIs(_file, "Script"), searchText, replaceText);
                 } catch {
                     Debug.Log("Failed to toggle "+_file);
                     fail = true;
@@ -90,40 +93,6 @@ namespace GameAnalyticsSDK.Editor
                 PlayMakerPresenceCheck.ResetPrefs();
                 Debug.Log("Disabled PlayMaker Scripts.");
             }
-        }
-
-        private static readonly string PlayServicesAdsArrPath = Application.dataPath + "/Plugins/Android/play-services-ads-9.4.0.aar";
-        private static readonly string PlayServicesBasementArrPath = Application.dataPath + "/Plugins/Android/play-services-basement-9.4.0.aar";
-        private const string Suffix = "x";
-
-        [MenuItem("Window/GameAnalytics/Exclude Google Play Services libraries (Android only)", false, 500)]
-        public static void ExcludeGooglePlayLibs()
-        {
-            if (File.Exists(PlayServicesAdsArrPath))
-            {
-                FileUtil.MoveFileOrDirectory(PlayServicesAdsArrPath, PlayServicesAdsArrPath + Suffix);
-            }
-            if (File.Exists(PlayServicesBasementArrPath))
-            {
-                FileUtil.MoveFileOrDirectory(PlayServicesBasementArrPath, PlayServicesBasementArrPath + Suffix);
-            }
-
-            AssetDatabase.Refresh();
-        }
-
-        [MenuItem("Window/GameAnalytics/Include Google Play Services libraries (Android only)", false, 510)]
-        public static void IncludeGooglePlayLibs()
-        {
-            if (File.Exists(PlayServicesAdsArrPath + Suffix))
-            {
-                FileUtil.MoveFileOrDirectory(PlayServicesAdsArrPath + Suffix, PlayServicesAdsArrPath);
-            }
-            if (File.Exists(PlayServicesBasementArrPath + Suffix))
-            {
-                FileUtil.MoveFileOrDirectory(PlayServicesBasementArrPath + Suffix, PlayServicesBasementArrPath);
-            }
-
-            AssetDatabase.Refresh();
         }
 
         public static bool ReplaceInFile (string filePath, string searchText, string replaceText)

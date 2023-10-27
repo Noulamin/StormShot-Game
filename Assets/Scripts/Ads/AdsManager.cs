@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.Events;
 using System.Collections;
-using GoogleMobileAds.Api;
+// using GoogleMobileAds.Api;
 // using GoogleMobileAds.Common;
 // using GleyMobileAds;
 public partial class SROptions
@@ -16,10 +16,10 @@ public partial class SROptions
     public void ShowAdmobAdInspector()
     {
 
-        MobileAds.OpenAdInspector((AdError) =>
-        {
+        // MobileAds.OpenAdInspector((AdError) =>
+        // {
 
-        });
+        // });
 
     }
     [System.ComponentModel.Category("Applovin")]
@@ -61,7 +61,7 @@ public class AdsManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            FunGamesMax.bannerPosition = BannerPosition.BOTTOM;
+            FunGamesMax.bannerPosition = FunGamesManager.defaultBannerPosition;
             FunGamesMax.OnFunGamesInitialized += Init;
             DontDestroyOnLoad(gameObject);
             return;
@@ -235,6 +235,10 @@ public class AdsManager : MonoBehaviour
         // else RequestBanner();
         // Advertisements.Instance.ShowBanner(BannerPosition.TOP);
 
+        if (NoAdsSubscription.isNoAds)
+        {
+            return;
+        }
         bannerShow = true;
 
         FunGamesMax.BannerIsLoaded("");
@@ -376,6 +380,11 @@ public class AdsManager : MonoBehaviour
     static bool waiteThread;
     void _showInterstitial(System.Action onClosed)
     {
+        if (NoAdsSubscription.isNoAds)
+        {
+            onClosed?.Invoke();
+            return;
+        }
         waiteThread = true;
         waiting.SetActive(true);
         waitingFor(() =>
@@ -532,7 +541,15 @@ public class AdsManager : MonoBehaviour
     {
         if (HasRewardedVideo())
         {
-            _showRewardedVideo((b) => { CompleteMethod?.Invoke(b); });
+            _showRewardedVideo((b) =>
+            {
+#if UNITY_EDITOR
+
+                CompleteMethod?.Invoke(true);
+#else
+                CompleteMethod?.Invoke(b); 
+#endif
+            });
         }
         else
         {

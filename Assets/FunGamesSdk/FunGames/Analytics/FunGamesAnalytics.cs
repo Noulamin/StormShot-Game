@@ -15,7 +15,6 @@ namespace FunGames.Sdk.Analytics
 
         private void Start()
         {
-            DontDestroyOnLoad(this);
             var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
 
             if (settings.useGameAnalytics == false)
@@ -26,9 +25,10 @@ namespace FunGames.Sdk.Analytics
             if (_funGamesAnalytics == null)
             {
                 _funGamesAnalytics = this;
+                DontDestroyOnLoad(this);
 
-                TenjinHelpers.Initialize();
-                GameAnalyticsHelpers.Initialize();
+                // TenjinHelpers.Initialize();
+                // GameAnalyticsHelpers.Initialize();
                 // FunGamesApiAnalytics.Initialize();
             }
             else

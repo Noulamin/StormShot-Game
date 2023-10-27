@@ -3,8 +3,8 @@ using FunGames.Sdk.Analytics;
 using FunGamesSdk;
 using FunGamesSdk.FunGames.Ads;
 using GameAnalyticsSDK;
-using GoogleMobileAds;
-using GoogleMobileAds.Api;
+// using GoogleMobileAds;
+// using GoogleMobileAds.Api;
 // using OgurySdk;
 using UnityEngine;
 
@@ -46,8 +46,8 @@ public class FunGamesMax
 
         // _USE_APPOPEN_ADMOBOnly = settings.Use_Appopen_AdmobOnly;
         // _USE_BANNER_ADMOBOnly = settings.Use_Banner_AdmobOnly;
-        if (settings.useMax)
-        {
+        // if (settings.useMax)
+        // {
 
 
 #if UNITY_IOS
@@ -59,32 +59,32 @@ public class FunGamesMax
 #endif
 
 #if UNITY_ANDROID
-            _interstitialAdUnitId = settings.androidInterstitialAdUnitId;
-            _rewardedAdUnitId = settings.androidRewardedAdUnitId;
-            _bannerAdUnitId = settings.androidBannerAdUnitId;
-            _appopenAdUnitId = settings.androidAppopenAdUnitId;
+        _interstitialAdUnitId = settings.androidInterstitialAdUnitId;
+        _rewardedAdUnitId = settings.androidRewardedAdUnitId;
+        _bannerAdUnitId = settings.androidBannerAdUnitId;
+        _appopenAdUnitId = settings.androidAppopenAdUnitId;
 
 #endif
-        }
-        else
-        {
-#if UNITY_IOS
-		_interstitialAdUnitId = settings.AdmobiOSInterstitialAdUnitId;
-		_rewardedAdUnitId = settings.AdmobiOSRewardedAdUnitId;
-		_bannerAdUnitId = settings.AdmobiOSBannerAdUnitId;
-		_appopenAdUnitId = settings.AdmobIOSAppopenAdUnitId;
+        // }
+        //         else
+        //         {
+        // #if UNITY_IOS
+        // 		_interstitialAdUnitId = settings.AdmobiOSInterstitialAdUnitId;
+        // 		_rewardedAdUnitId = settings.AdmobiOSRewardedAdUnitId;
+        // 		_bannerAdUnitId = settings.AdmobiOSBannerAdUnitId;
+        // 		_appopenAdUnitId = settings.AdmobIOSAppopenAdUnitId;
 
-#endif
+        // #endif
 
-#if UNITY_ANDROID
-            _interstitialAdUnitId = settings.AdmobandroidInterstitialAdUnitId;
-            _rewardedAdUnitId = settings.AdmobandroidRewardedAdUnitId;
-            _bannerAdUnitId = settings.AdmobandroidBannerAdUnitId;
-            _appopenAdUnitId = settings.AdmobandroidAppopenAdUnitId;
+        // #if UNITY_ANDROID
+        //             _interstitialAdUnitId = settings.AdmobandroidInterstitialAdUnitId;
+        //             _rewardedAdUnitId = settings.AdmobandroidRewardedAdUnitId;
+        //             _bannerAdUnitId = settings.AdmobandroidBannerAdUnitId;
+        //             _appopenAdUnitId = settings.AdmobandroidAppopenAdUnitId;
 
-#endif
+        // #endif
 
-        }
+        //         }
     }
 
     // Start is called on the start of FunGamesAds
@@ -92,38 +92,38 @@ public class FunGamesMax
     {
         Debug.Log("internal static void Start()");
         var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
-        if (settings.useMax)
+        // if (settings.useMax)
+        // {
+
+
+        // Set user consent status for AppLovin SDK
+        MaxSdk.SetHasUserConsent(true);
+        MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
         {
 
-
-            // Set user consent status for AppLovin SDK
-            MaxSdk.SetHasUserConsent(true);
-            MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
-            {
-
-                InitializeAds();
-                OnFunGamesInitialized?.Invoke();
-            };
+            InitializeAds();
+            OnFunGamesInitialized?.Invoke();
+        };
 
 
-            MaxSdk.SetSdkKey(_maxSdkKey);
+        MaxSdk.SetSdkKey(_maxSdkKey);
 
-            MaxSdk.InitializeSdk();
-            Debug.Log("Initializing FunGamesAds");
-        }
-        else
-        {
-            // Initialize the Google Mobile Ads SDK.
-            MobileAds.Initialize((InitializationStatus initStatus) =>
-            {
-                // This callback is called once the MobileAds SDK is initialized.
-                isAdmobInitialized = true;
-                InitializeAds();
-                OnFunGamesInitialized?.Invoke();
-            });
+        MaxSdk.InitializeSdk();
+        Debug.Log("Initializing FunGamesAds");
+        // }
+        // else
+        // {
+        //     // Initialize the Google Mobile Ads SDK.
+        //     MobileAds.Initialize((InitializationStatus initStatus) =>
+        //     {
+        //         // This callback is called once the MobileAds SDK is initialized.
+        //         isAdmobInitialized = true;
+        //         InitializeAds();
+        //         OnFunGamesInitialized?.Invoke();
+        //     });
 
-            Debug.Log("Initializing FunGamesAds");
-        }
+        //     Debug.Log("Initializing FunGamesAds");
+        // }
     }
 
     public static void InitializeAds()
@@ -153,98 +153,104 @@ public class FunGamesMax
             Debug.Log("Failed Load Interstitials : Please Check Ad Unit");
         }
     }
-    static InterstitialAd interstitialAd;
+    // static InterstitialAd interstitialAd;
 
     private static void LoadInterstitial()
     {
-        if (isAdmobInitialized)
-        {
-            // Clean up the old ad before loading a new one.
-            if (interstitialAd != null)
-            {
-                interstitialAd.Destroy();
-                interstitialAd = null;
-            }
+        // if (isAdmobInitialized)
+        // {
+        //     // Clean up the old ad before loading a new one.
+        //     if (interstitialAd != null)
+        //     {
+        //         interstitialAd.Destroy();
+        //         interstitialAd = null;
+        //     }
 
-            Debug.Log("Loading the interstitial ad.");
+        //     Debug.Log("Loading the interstitial ad.");
 
-            // create our request used to load the ad.
-            var adRequest = new AdRequest();
+        //     // create our request used to load the ad.
+        //     var adRequest = new AdRequest();
 
 
-            // send the request to load the ad.
-            InterstitialAd.Load(_interstitialAdUnitId, adRequest, (InterstitialAd ad, LoadAdError error) =>
-                {
-                    // if error is not null, the load request failed.
-                    if (error != null || ad == null)
-                    {
-                        Debug.LogError("interstitial ad failed to load an ad " +
-                                        "with error : " + error);
+        //     // send the request to load the ad.
+        //     InterstitialAd.Load(_interstitialAdUnitId, adRequest, (InterstitialAd ad, LoadAdError error) =>
+        //         {
+        //             // if error is not null, the load request failed.
+        //             if (error != null || ad == null)
+        //             {
+        //                 Debug.LogError("interstitial ad failed to load an ad " +
+        //                                 "with error : " + error);
 
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
-                            LoadInterstitial();
-                        });
-                        return;
-                    }
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
+        //                     LoadInterstitial();
+        //                 });
+        //                 return;
+        //             }
 
-                    Debug.Log("Interstitial ad loaded with response : "
-                                + ad.GetResponseInfo());
+        //             Debug.Log("Interstitial ad loaded with response : "
+        //                         + ad.GetResponseInfo());
 
-                    interstitialAd = ad;
+        //             interstitialAd = ad;
 
-                    // Raised when the ad is estimated to have earned money.
-                    interstitialAd.OnAdPaid += (AdValue adValue) =>
-                    {
-                        Debug.Log(String.Format("Interstitial ad paid {0} {1}.",
-                            adValue.Value,
-                            adValue.CurrencyCode));
-                    };
-                    // Raised when an impression is recorded for an ad.
-                    interstitialAd.OnAdImpressionRecorded += () =>
-                    {
-                        Debug.Log("Interstitial ad recorded an impression.");
-                    };
-                    // Raised when a click is recorded for an ad.
-                    interstitialAd.OnAdClicked += () =>
-                    {
-                        Debug.Log("Interstitial ad was clicked.");
-                    };
-                    // Raised when an ad opened full screen content.
-                    interstitialAd.OnAdFullScreenContentOpened += () =>
-                    {
-                        Debug.Log("Interstitial ad full screen content opened.");
-                    };
-                    // Raised when the ad closed full screen content.
-                    interstitialAd.OnAdFullScreenContentClosed += () =>
-                    {
-                        Debug.Log("Interstitial ad full screen content closed.");
-                        _interstitialCallback?.Invoke("success", _interstitialCallbackArgString, _interstitialCallbackArgInt);
-                        _interstitialCallback = null;
+        //             // Raised when the ad is estimated to have earned money.
+        //             interstitialAd.OnAdPaid += (AdValue adValue) =>
+        //             {
+        //                 Debug.Log(String.Format("Interstitial ad paid {0} {1}.",
+        //                     adValue.Value,
+        //                     adValue.CurrencyCode));
+        //             };
+        //             // Raised when an impression is recorded for an ad.
+        //             interstitialAd.OnAdImpressionRecorded += () =>
+        //             {
+        //                 Debug.Log("Interstitial ad recorded an impression.");
+        //             };
+        //             // Raised when a click is recorded for an ad.
+        //             interstitialAd.OnAdClicked += () =>
+        //             {
+        //                 Debug.Log("Interstitial ad was clicked.");
+        //             };
+        //             // Raised when an ad opened full screen content.
+        //             interstitialAd.OnAdFullScreenContentOpened += () =>
+        //             {
+        //                 Debug.Log("Interstitial ad full screen content opened.");
+        //             };
+        //             // Raised when the ad closed full screen content.
+        //             interstitialAd.OnAdFullScreenContentClosed += () =>
+        //             {
+        //                 Debug.Log("Interstitial ad full screen content closed.");
+        //                 _interstitialCallback?.Invoke("success", _interstitialCallbackArgString, _interstitialCallbackArgInt);
+        //                 _interstitialCallback = null;
 
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
-                            LoadInterstitial();
-                        });
-                    };
-                    // Raised when the ad failed to open full screen content.
-                    interstitialAd.OnAdFullScreenContentFailed += (AdError error) =>
-                    {
-                        Debug.LogError("Interstitial ad failed to open full screen content " +
-                                    "with error : " + error);
-                        _interstitialCallback?.Invoke("fail", _interstitialCallbackArgString, _interstitialCallbackArgInt);
-                        _interstitialCallback = null;
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
-                            LoadInterstitial();
-                        });
-                    };
-                });
-        }
-        else
-        {
-            MaxSdk.LoadInterstitial(_interstitialAdUnitId);
-        }
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
+        //                     LoadInterstitial();
+        //                 });
+        //             };
+        //             // Raised when the ad failed to open full screen content.
+        //             interstitialAd.OnAdFullScreenContentFailed += (AdError error) =>
+        //             {
+        //                 Debug.LogError("Interstitial ad failed to open full screen content " +
+        //                             "with error : " + error);
+        //                 _interstitialCallback?.Invoke("fail", _interstitialCallbackArgString, _interstitialCallbackArgInt);
+        //                 _interstitialCallback = null;
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
+        //                     LoadInterstitial();
+        //                 });
+        //             };
+
+        //             if (interstitialAd != null)
+        //             {
+        //                 FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Intertitial initialized");
+        //             }
+        //         });
+        // }
+        // else
+        // {
+        MaxSdk.LoadInterstitial(_interstitialAdUnitId);
+        FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Intertitial initialized");
+        // }
     }
 
     private static void OnInterstitialLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
@@ -314,108 +320,113 @@ public class FunGamesMax
         }
     }
 
-    static RewardedAd rewardedAd;
+    // static RewardedAd rewardedAd;
 
     private static void LoadRewardedAd()
     {
-        if (isAdmobInitialized)
-        {
-            // Clean up the old ad before loading a new one.
-            if (rewardedAd != null)
-            {
-                rewardedAd.Destroy();
-                rewardedAd = null;
-            }
+        // if (isAdmobInitialized)
+        // {
+        //     // Clean up the old ad before loading a new one.
+        //     if (rewardedAd != null)
+        //     {
+        //         rewardedAd.Destroy();
+        //         rewardedAd = null;
+        //     }
 
-            Debug.Log("Loading the rewarded ad.");
+        //     Debug.Log("Loading the rewarded ad.");
 
-            // create our request used to load the ad.
-            var adRequest = new AdRequest();
+        //     // create our request used to load the ad.
+        //     var adRequest = new AdRequest();
 
 
-            // send the request to load the ad.
-            RewardedAd.Load(_rewardedAdUnitId, adRequest, (RewardedAd ad, LoadAdError error) =>
-                {
-                    // if error is not null, the load request failed.
-                    if (error != null || ad == null)
-                    {
-                        Debug.LogError("Rewarded ad failed to load an ad " +
-                                        "with error : " + error);
+        //     // send the request to load the ad.
+        //     RewardedAd.Load(_rewardedAdUnitId, adRequest, (RewardedAd ad, LoadAdError error) =>
+        //         {
+        //             // if error is not null, the load request failed.
+        //             if (error != null || ad == null)
+        //             {
+        //                 Debug.LogError("Rewarded ad failed to load an ad " +
+        //                                 "with error : " + error);
 
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
-                            LoadRewardedAd();
-                        });
-                        return;
-                    }
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
+        //                     LoadRewardedAd();
+        //                 });
+        //                 return;
+        //             }
 
-                    Debug.Log("Rewarded ad loaded with response : "
-                                + ad.GetResponseInfo());
+        //             Debug.Log("Rewarded ad loaded with response : "
+        //                         + ad.GetResponseInfo());
 
-                    rewardedAd = ad;
+        //             rewardedAd = ad;
 
-                    // Raised when the ad is estimated to have earned money.
-                    rewardedAd.OnAdPaid += (AdValue adValue) =>
-                    {
-                        Debug.Log(String.Format("Rewarded ad paid {0} {1}.",
-                            adValue.Value,
-                            adValue.CurrencyCode));
-                        // collected = true;
-                    };
-                    // Raised when an impression is recorded for an ad.
-                    rewardedAd.OnAdImpressionRecorded += () =>
-                    {
-                        Debug.Log("Rewarded ad recorded an impression.");
-                    };
-                    // Raised when a click is recorded for an ad.
-                    rewardedAd.OnAdClicked += () =>
-                    {
-                        Debug.Log("Rewarded ad was clicked.");
-                    };
-                    // Raised when an ad opened full screen content.
-                    rewardedAd.OnAdFullScreenContentOpened += () =>
-                    {
-                        Debug.Log("Rewarded ad full screen content opened.");
-                    };
-                    // Raised when the ad closed full screen content.
-                    rewardedAd.OnAdFullScreenContentClosed += () =>
-                    {
-                        Debug.Log("Rewarded ad full screen content closed.");
-                        if (collected)
-                        {
-                            _rewardedCallback?.Invoke("reward", _rewardedCallbackArgString, _rewardedCallbackArgInt);
-                            _rewardedCallback = null;
-                        }
-                        else
-                        {
-                            _rewardedCallback?.Invoke("fail", _rewardedCallbackArgString, _rewardedCallbackArgInt);
-                            _rewardedCallback = null;
-                        }
-                        collected = false;
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
-                            LoadRewardedAd();
-                        });
-                    };
-                    // Raised when the ad failed to open full screen content.
-                    rewardedAd.OnAdFullScreenContentFailed += (AdError error) =>
-                    {
-                        Debug.LogError("Rewarded ad failed to open full screen content " +
-                                    "with error : " + error);
-                        _rewardedCallback?.Invoke("fail", _rewardedCallbackArgString, _rewardedCallbackArgInt);
-                        _rewardedCallback = null;
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
-                            LoadRewardedAd();
-                        });
-                    };
+        //             // Raised when the ad is estimated to have earned money.
+        //             rewardedAd.OnAdPaid += (AdValue adValue) =>
+        //             {
+        //                 Debug.Log(String.Format("Rewarded ad paid {0} {1}.",
+        //                     adValue.Value,
+        //                     adValue.CurrencyCode));
+        //                 // collected = true;
+        //             };
+        //             // Raised when an impression is recorded for an ad.
+        //             rewardedAd.OnAdImpressionRecorded += () =>
+        //             {
+        //                 Debug.Log("Rewarded ad recorded an impression.");
+        //             };
+        //             // Raised when a click is recorded for an ad.
+        //             rewardedAd.OnAdClicked += () =>
+        //             {
+        //                 Debug.Log("Rewarded ad was clicked.");
+        //             };
+        //             // Raised when an ad opened full screen content.
+        //             rewardedAd.OnAdFullScreenContentOpened += () =>
+        //             {
+        //                 Debug.Log("Rewarded ad full screen content opened.");
+        //             };
+        //             // Raised when the ad closed full screen content.
+        //             rewardedAd.OnAdFullScreenContentClosed += () =>
+        //             {
+        //                 Debug.Log("Rewarded ad full screen content closed.");
+        //                 if (collected)
+        //                 {
+        //                     _rewardedCallback?.Invoke("reward", _rewardedCallbackArgString, _rewardedCallbackArgInt);
+        //                     _rewardedCallback = null;
+        //                 }
+        //                 else
+        //                 {
+        //                     _rewardedCallback?.Invoke("fail", _rewardedCallbackArgString, _rewardedCallbackArgInt);
+        //                     _rewardedCallback = null;
+        //                 }
+        //                 collected = false;
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
+        //                     LoadRewardedAd();
+        //                 });
+        //             };
+        //             // Raised when the ad failed to open full screen content.
+        //             rewardedAd.OnAdFullScreenContentFailed += (AdError error) =>
+        //             {
+        //                 Debug.LogError("Rewarded ad failed to open full screen content " +
+        //                             "with error : " + error);
+        //                 _rewardedCallback?.Invoke("fail", _rewardedCallbackArgString, _rewardedCallbackArgInt);
+        //                 _rewardedCallback = null;
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
+        //                     LoadRewardedAd();
+        //                 });
+        //             };
+        //             if (rewardedAd != null)
+        //             {
+        //                 FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Reward Initialized");
+        //             }
 
-                });
-        }
-        else
-        {
-            MaxSdk.LoadRewardedAd(_rewardedAdUnitId);
-        }
+        //         });
+        // }
+        // else
+        // {
+        MaxSdk.LoadRewardedAd(_rewardedAdUnitId);
+        FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Reward initialized");
+        // }
     }
 
     private static void OnRewardedAdLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
@@ -488,192 +499,203 @@ public class FunGamesMax
     public static BannerPosition bannerPosition = BannerPosition.BOTTOM;
 
     public static bool isAdmobInitialized;
-    static BannerView _bannerView;
+    // static BannerView _bannerView;
     public static void InitializeBannerAds()
     {
 
-        if (isAdmobInitialized)
+        // if (isAdmobInitialized)
+        // {
+        //     if (_bannerView != null)
+        //     {
+        //         _bannerView.Destroy();
+        //     }
+        //     _bannerView = new BannerView(_bannerAdUnitId, AdSize.Banner, bannerPosition == BannerPosition.BOTTOM ? AdPosition.Bottom : AdPosition.Top);
+        //     // Raised when an ad is loaded into the banner view.
+        //     _bannerView.OnBannerAdLoaded += () =>
+        //     {
+        //         // Debug.Log("Banner view loaded an ad with response : "
+        //         //     + _bannerView.GetResponseInfo());
+        //         printApplovinAdInfo<ResponseInfo, string>("Banner view loaded", _bannerView.GetResponseInfo(), "");
+        //     };
+        //     _bannerView.OnAdFullScreenContentClosed += () =>
+        //     {
+        //         // Debug.Log("Banner view loaded an ad with response : "
+        //         //     + _bannerView.GetResponseInfo());
+        //         printApplovinAdInfo<ResponseInfo, string>("Banner view closed", _bannerView.GetResponseInfo(), "");
+        //     };
+        //     _bannerView.OnAdFullScreenContentOpened += () =>
+        //     {
+        //         // Debug.Log("Banner view loaded an ad with response : "
+        //         //     + _bannerView.GetResponseInfo());
+        //         printApplovinAdInfo<ResponseInfo, string>("Banner view Opening", _bannerView.GetResponseInfo(), "");
+        //     };
+        //     // Raised when an ad fails to load into the banner view.
+        //     _bannerView.OnBannerAdLoadFailed += (LoadAdError error) =>
+        //     {
+        //         Debug.LogError("Banner view failed to load an ad with error : "
+        //             + error);
+        //         printApplovinAdInfo<ResponseInfo, string>("Banner view faild", error.GetResponseInfo(), error.ToString());
+        //     };
+        //     // Raised when the ad is estimated to have earned money.
+        //     _bannerView.OnAdPaid += (AdValue adValue) =>
+        //     {
+        //         printApplovinAdInfo<string, string>("Banner view paid", adValue.ToString(), "");
+        //         // Debug.Log(String.Format("Banner view paid {0} {1}.",
+        //         //     adValue.Value,
+        //         //     adValue.CurrencyCode));
+        //     };
+        //     if (_bannerAdUnitId != null)
+        //     {
+        //         FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Banner initialized");
+        //     }
+
+        //     Debug.Log("Banner admobOnly Created");
+        //     ShowBannerAd();
+        // }
+        // else
+        // {
+
+        MaxSdkCallbacks.OnBannerAdLoadedEvent += BannerIsLoaded;
+
+
+        MaxSdkCallbacks.Banner.OnAdLoadFailedEvent += OnBannerAdLoadFailedEvent;
+        MaxSdkCallbacks.Banner.OnAdClickedEvent += OnBannerAdClickedEvent;
+        MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += OnBannerAdRevenuePaidEvent;
+        MaxSdkCallbacks.Banner.OnAdExpandedEvent += OnBannerAdExpandedEvent;
+        MaxSdkCallbacks.Banner.OnAdCollapsedEvent += OnBannerAdCollapsedEvent;
+
+        try
         {
-            if (_bannerView != null)
-            {
-                _bannerView.Destroy();
-            }
-            _bannerView = new BannerView(_bannerAdUnitId, AdSize.Banner, bannerPosition == BannerPosition.BOTTOM ? AdPosition.Bottom : AdPosition.Top);
-            // Raised when an ad is loaded into the banner view.
-            _bannerView.OnBannerAdLoaded += () =>
-            {
-                // Debug.Log("Banner view loaded an ad with response : "
-                //     + _bannerView.GetResponseInfo());
-                printApplovinAdInfo<ResponseInfo, string>("Banner view loaded", _bannerView.GetResponseInfo(), "");
-            };
-            _bannerView.OnAdFullScreenContentClosed += () =>
-            {
-                // Debug.Log("Banner view loaded an ad with response : "
-                //     + _bannerView.GetResponseInfo());
-                printApplovinAdInfo<ResponseInfo, string>("Banner view closed", _bannerView.GetResponseInfo(), "");
-            };
-            _bannerView.OnAdFullScreenContentOpened += () =>
-            {
-                // Debug.Log("Banner view loaded an ad with response : "
-                //     + _bannerView.GetResponseInfo());
-                printApplovinAdInfo<ResponseInfo, string>("Banner view Opening", _bannerView.GetResponseInfo(), "");
-            };
-            // Raised when an ad fails to load into the banner view.
-            _bannerView.OnBannerAdLoadFailed += (LoadAdError error) =>
-            {
-                Debug.LogError("Banner view failed to load an ad with error : "
-                    + error);
-                printApplovinAdInfo<ResponseInfo, string>("Banner view faild", error.GetResponseInfo(), error.ToString());
-            };
-            // Raised when the ad is estimated to have earned money.
-            _bannerView.OnAdPaid += (AdValue adValue) =>
-            {
-                printApplovinAdInfo<string, string>("Banner view paid", adValue.ToString(), "");
-                // Debug.Log(String.Format("Banner view paid {0} {1}.",
-                //     adValue.Value,
-                //     adValue.CurrencyCode));
-            };
-
-            Debug.Log("Banner admobOnly Created");
-            ShowBannerAd();
+            MaxSdk.CreateBanner(_bannerAdUnitId, bannerPosition == BannerPosition.TOP ? MaxSdkBase.BannerPosition.TopCenter : MaxSdkBase.BannerPosition.BottomCenter);
+            MaxSdk.SetBannerExtraParameter(_bannerAdUnitId, "adaptive_banner", "false");
+            MaxSdk.SetBannerBackgroundColor(_bannerAdUnitId, Color.clear);
+            MaxSdk.SetBannerWidth(_bannerAdUnitId, 360);
+            _isBannerShowing = false;
+            Debug.Log("Banner Created");
+            FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Banner initialized");
         }
-        else
+        catch
         {
-
-            MaxSdkCallbacks.OnBannerAdLoadedEvent += BannerIsLoaded;
-
-
-            MaxSdkCallbacks.Banner.OnAdLoadFailedEvent += OnBannerAdLoadFailedEvent;
-            MaxSdkCallbacks.Banner.OnAdClickedEvent += OnBannerAdClickedEvent;
-            MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += OnBannerAdRevenuePaidEvent;
-            MaxSdkCallbacks.Banner.OnAdExpandedEvent += OnBannerAdExpandedEvent;
-            MaxSdkCallbacks.Banner.OnAdCollapsedEvent += OnBannerAdCollapsedEvent;
-
-            try
-            {
-                MaxSdk.CreateBanner(_bannerAdUnitId, bannerPosition == BannerPosition.TOP ? MaxSdkBase.BannerPosition.TopCenter : MaxSdkBase.BannerPosition.BottomCenter);
-                MaxSdk.SetBannerBackgroundColor(_bannerAdUnitId, Color.clear);
-                _isBannerShowing = false;
-                Debug.Log("Banner Created");
-            }
-            catch
-            {
-                Debug.Log("Failed Create Banner : Please Check Ad Unit");
-            }
+            Debug.Log("Failed Create Banner : Please Check Ad Unit");
         }
+        // }
     }
     public static bool IsBannerLoaded;
-    static AppOpenAd appOpenAd;
+    // static AppOpenAd appOpenAd;
 
     private static void InitializeAppOpenAds()
     {
-        if (isAdmobInitialized)
+        // if (isAdmobInitialized)
+        // {
+        //     loadAppOpen();
+        //     // ShowAdIfReady(_appopenAdUnitId);
+        //     Debug.Log("App Open Initiated");
+        // }
+        // else
+        // {
+        MaxSdkCallbacks.AppOpen.OnAdHiddenEvent += OnAppOpenDismissedEvent;
+
+        try
         {
-            loadAppOpen();
-            // ShowAdIfReady(_appopenAdUnitId);
+
+            ShowAdIfReady(_appopenAdUnitId);
             Debug.Log("App Open Initiated");
         }
-        else
+        catch
         {
-            MaxSdkCallbacks.AppOpen.OnAdHiddenEvent += OnAppOpenDismissedEvent;
-
-            try
-            {
-
-                ShowAdIfReady(_appopenAdUnitId);
-                Debug.Log("App Open Initiated");
-            }
-            catch
-            {
-                Debug.Log("Failed Initiate AppOpen : Please Check Ad Unit");
-            }
+            Debug.Log("Failed Initiate AppOpen : Please Check Ad Unit");
         }
+        // }
     }
     public static void LoadAppOpen()
     {
-        if (isAdmobInitialized)
-        {
+        // if (isAdmobInitialized)
+        // {
 
 
-            if (appOpenAd != null)
-            {
-                appOpenAd.Destroy();
-                appOpenAd = null;
-            }
+        //     if (appOpenAd != null)
+        //     {
+        //         appOpenAd.Destroy();
+        //         appOpenAd = null;
+        //     }
 
-            Debug.Log("Loading the app open ad.");
+        //     Debug.Log("Loading the app open ad.");
 
-            // Create our request used to load the ad.
-            var adRequest = new AdRequest();
+        //     // Create our request used to load the ad.
+        //     var adRequest = new AdRequest();
 
-            // send the request to load the ad.
-            AppOpenAd.Load(_appopenAdUnitId, ScreenOrientation.Portrait, adRequest, (AppOpenAd ad, LoadAdError error) =>
-                {
-                    // if error is not null, the load request failed.
-                    if (error != null || ad == null)
-                    {
-                        Debug.LogError("app open ad failed to load an ad " +
-                                        "with error : " + error);
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
+        //     // send the request to load the ad.
+        //     AppOpenAd.Load(_appopenAdUnitId, Screen.orientation, adRequest, (AppOpenAd ad, LoadAdError error) =>
+        //         {
+        //             // if error is not null, the load request failed.
+        //             if (error != null || ad == null)
+        //             {
+        //                 Debug.LogError("app open ad failed to load an ad " +
+        //                                 "with error : " + error);
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
 
-                            LoadAppOpen();
-                        });
-                        return;
-                    }
+        //                     LoadAppOpen();
+        //                 });
+        //                 return;
+        //             }
 
-                    Debug.Log("App open ad loaded with response : "
-                                + ad.GetResponseInfo());
+        //             Debug.Log("App open ad loaded with response : "
+        //                         + ad.GetResponseInfo());
 
-                    appOpenAd = ad;
-                    AdsManager.isAppOpenInitiaed = true;
-                    // Raised when the ad is estimated to have earned money.
-                    appOpenAd.OnAdPaid += (AdValue adValue) =>
-                    {
-                        Debug.Log(String.Format("App open ad paid {0} {1}.",
-                            adValue.Value,
-                            adValue.CurrencyCode));
-                    };
-                    // Raised when an impression is recorded for an ad.
-                    appOpenAd.OnAdImpressionRecorded += () =>
-                    {
-                        Debug.Log("App open ad recorded an impression.");
-                    };
-                    // Raised when a click is recorded for an ad.
-                    appOpenAd.OnAdClicked += () =>
-                    {
-                        Debug.Log("App open ad was clicked.");
-                    };
-                    // Raised when an ad opened full screen content.
-                    appOpenAd.OnAdFullScreenContentOpened += () =>
-                    {
-                        Debug.Log("App open ad full screen content opened.");
-                    };
-                    // Raised when the ad closed full screen content.
-                    appOpenAd.OnAdFullScreenContentClosed += () =>
-                    {
-                        Debug.Log("App open ad full screen content closed.");
-                    };
-                    // Raised when the ad failed to open full screen content.
-                    appOpenAd.OnAdFullScreenContentFailed += (AdError error) =>
-                    {
-                        Debug.LogError("App open ad failed to open full screen content " +
-                                    "with error : " + error);
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
-                            LoadAppOpen();
-                        });
-                    };
-                    if (firstTimeAppopen == false)
-                    {
-                        firstTimeAppopen = true;
-                        FunGamesManager._instance.DelayInvoke(2, () =>
-                        {
-                            showAppOpen();
-                        });
-                    }
-                });
-        }
+        //             appOpenAd = ad;
+        //             AdsManager.isAppOpenInitiaed = true;
+        //             // Raised when the ad is estimated to have earned money.
+        //             appOpenAd.OnAdPaid += (AdValue adValue) =>
+        //             {
+        //                 Debug.Log(String.Format("App open ad paid {0} {1}.",
+        //                     adValue.Value,
+        //                     adValue.CurrencyCode));
+        //             };
+        //             // Raised when an impression is recorded for an ad.
+        //             appOpenAd.OnAdImpressionRecorded += () =>
+        //             {
+        //                 Debug.Log("App open ad recorded an impression.");
+        //             };
+        //             // Raised when a click is recorded for an ad.
+        //             appOpenAd.OnAdClicked += () =>
+        //             {
+        //                 Debug.Log("App open ad was clicked.");
+        //             };
+        //             // Raised when an ad opened full screen content.
+        //             appOpenAd.OnAdFullScreenContentOpened += () =>
+        //             {
+        //                 Debug.Log("App open ad full screen content opened.");
+        //             };
+        //             // Raised when the ad closed full screen content.
+        //             appOpenAd.OnAdFullScreenContentClosed += () =>
+        //             {
+        //                 Debug.Log("App open ad full screen content closed.");
+        //             };
+        //             // Raised when the ad failed to open full screen content.
+        //             appOpenAd.OnAdFullScreenContentFailed += (AdError error) =>
+        //             {
+        //                 Debug.LogError("App open ad failed to open full screen content " +
+        //                             "with error : " + error);
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
+        //                     LoadAppOpen();
+        //                 });
+        //             };
+        //             if (appOpenAd != null)
+        //             {
+        //                 FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Appopen initialized");
+        //             }
+        //             if (firstTimeAppopen == false)
+        //             {
+        //                 firstTimeAppopen = true;
+        //                 FunGamesManager._instance.DelayInvoke(2, () =>
+        //                 {
+        //                     showAppOpen();
+        //                 });
+        //             }
+        //         });
+        // }
     }
     public static void OnAppOpenDismissedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
     {
@@ -710,6 +732,10 @@ public class FunGamesMax
         // {
         //     return;
         // }
+        if (NoAdsSubscription.isNoAds)
+        {
+            return;
+        }
         if (Time.unscaledTime < AdsManager.timer && firstTimeAppopen)
         {
             Debug.Log(Time.unscaledTime + "// " + AdsManager.timer);
@@ -718,37 +744,37 @@ public class FunGamesMax
         }
         AdsManager.timer = Time.unscaledTime + AdsManager.MaxTime;
 
-        if (isAdmobInitialized)
+        // if (isAdmobInitialized)
+        // {
+        //     if (appOpenAd != null && appOpenAd.CanShowAd())
+        //     {
+        //         firstTimeAppopen = true;
+        //         Debug.Log("Showing app open ad.");
+        //         appOpenAd.Show();
+        //     }
+        //     else
+        //     {
+        //         Debug.LogError("App open ad is not ready yet.");
+        //         loadAppOpen();
+        //     }
+        // }
+        // else
+        // {
+        if (MaxSdk.IsAppOpenAdReady(AppOpenAdUnitId))
         {
-            if (appOpenAd != null && appOpenAd.CanShowAd())
-            {
-                firstTimeAppopen = true;
-                Debug.Log("Showing app open ad.");
-                appOpenAd.Show();
-            }
-            else
-            {
-                Debug.LogError("App open ad is not ready yet.");
-                loadAppOpen();
-            }
+            firstTimeAppopen = true;
+            Debug.Log("Show App Open");
+            MaxSdk.ShowAppOpenAd(AppOpenAdUnitId);
         }
         else
         {
-            if (MaxSdk.IsAppOpenAdReady(AppOpenAdUnitId))
-            {
-                firstTimeAppopen = true;
-                Debug.Log("Show App Open");
-                MaxSdk.ShowAppOpenAd(AppOpenAdUnitId);
-            }
-            else
-            {
-                Debug.Log("Load App Open");
-                AdsManager.isAppOpenInitiaed = true;
-                MaxSdk.LoadAppOpenAd(AppOpenAdUnitId);
-                Debug.Log("Show App Open");
-                MaxSdk.ShowAppOpenAd(AppOpenAdUnitId);
-            }
+            Debug.Log("Load App Open");
+            AdsManager.isAppOpenInitiaed = true;
+            MaxSdk.LoadAppOpenAd(AppOpenAdUnitId);
+            Debug.Log("Show App Open");
+            MaxSdk.ShowAppOpenAd(AppOpenAdUnitId);
         }
+        // }
     }
 
     public static void printApplovinAdInfo(string tag, MaxSdkBase.AdInfo adInfo, MaxSdkBase.ErrorInfo errorInfo = null)
@@ -833,56 +859,57 @@ public class FunGamesMax
         // }
         // else
         // {
-        if (isAdmobInitialized)
+        // if (isAdmobInitialized)
+        // {
+        //     if (_bannerView == null)
+        //     {
+        //         Debug.Log("Banner not initialized yet");
+
+        //         InitializeBannerAds();
+        //         return;
+        //     }
+
+        //     Debug.Log("Showiiing Banner");
+
+        //     // MaxSdk.ShowBanner(_bannerAdUnitId);
+        //     var adRequest = new AdRequest();
+
+        //     // send the request to load the ad.
+        //     Debug.Log("Loading banner ad.");
+        //     if (_bannerView.IsDestroyed)
+        //     {
+        //         InitializeBannerAds();
+        //     }
+        //     _bannerView.LoadAd(adRequest);
+        //     _isBannerShowing = true;
+        //     // }
+        //     FunGamesAnalytics.NewAdEvent(GAAdAction.Show, GAAdType.Banner);
+        // }
+        // else
+        // {
+
+        if (_isBannerShowing)
         {
-            if (_bannerView == null)
-            {
-                Debug.Log("Banner not initialized yet");
-
-                return;
-            }
-
-            Debug.Log("Showiiing Banner");
-
-            // MaxSdk.ShowBanner(_bannerAdUnitId);
-            var adRequest = new AdRequest();
-
-            // send the request to load the ad.
-            Debug.Log("Loading banner ad.");
-            if (_bannerView.IsDestroyed)
-            {
-                InitializeBannerAds();
-            }
-            _bannerView.LoadAd(adRequest);
-            _isBannerShowing = true;
-            // }
-            FunGamesAnalytics.NewAdEvent(GAAdAction.Show, GAAdType.Banner);
+            return;
         }
-        else
+
+        if (_showBannerAsked == false)
         {
-
-            if (_isBannerShowing)
-            {
-                return;
-            }
-
-            if (_showBannerAsked == false)
-            {
-                _showBannerAsked = true;
-            }
-
-            if (_isBannerLoaded == false)
-            {
-                return;
-            }
-
-            Debug.Log("Showiiing Banner");
-
-            MaxSdk.ShowBanner(_bannerAdUnitId);
-            _isBannerShowing = true;
-            // }
-            FunGamesAnalytics.NewAdEvent(GAAdAction.Show, GAAdType.Banner);
+            _showBannerAsked = true;
         }
+
+        if (_isBannerLoaded == false)
+        {
+            return;
+        }
+
+        Debug.Log("Showiiing Banner");
+
+        MaxSdk.ShowBanner(_bannerAdUnitId);
+        _isBannerShowing = true;
+        // }
+        FunGamesAnalytics.NewAdEvent(GAAdAction.Show, GAAdType.Banner);
+        // }
     }
 
     internal static void HideBannerAd()
@@ -891,35 +918,38 @@ public class FunGamesMax
         {
             return;
         }
-        if (isAdmobInitialized)
-        {
-            Debug.Log("Destroying banner ad.");
-            _bannerView.Destroy();
-            _bannerView = null;
+        // if (isAdmobInitialized)
+        // {
+        //     Debug.Log("Destroying banner ad.");
+        //     if (_bannerView != null)
+        //     {
+        //         _bannerView.Destroy();
+        //     }
+        //     _bannerView = null;
 
-            _isBannerShowing = false;
-            _showBannerAsked = false;
-        }
-        else
-        {
+        //     _isBannerShowing = false;
+        //     _showBannerAsked = false;
+        // }
+        // else
+        // {
 
 
-            MaxSdk.HideBanner(_bannerAdUnitId);
-            _isBannerShowing = false;
-            _showBannerAsked = false;
-        }
+        MaxSdk.HideBanner(_bannerAdUnitId);
+        _isBannerShowing = false;
+        _showBannerAsked = false;
+        // }
     }
 
     internal static bool IsRewardedAdReady()
     {
-        if (isAdmobInitialized)
-        {
-            return rewardedAd != null && rewardedAd.CanShowAd();
-        }
-        else
-        {
-            return MaxSdk.IsRewardedAdReady(_rewardedAdUnitId);
-        }
+        // if (isAdmobInitialized)
+        // {
+        //     return rewardedAd != null && rewardedAd.CanShowAd();
+        // }
+        // else
+        // {
+        return MaxSdk.IsRewardedAdReady(_rewardedAdUnitId);
+        // }
     }
 
     internal static void LoadAds()
@@ -931,25 +961,25 @@ public class FunGamesMax
 
     public static bool HasInterstitial()
     {
-        if (isAdmobInitialized)
-        {
-            return interstitialAd != null && interstitialAd.CanShowAd();
-        }
-        else
-        {
-            return MaxSdk.IsInterstitialReady(_interstitialAdUnitId);
-        }
+        // if (isAdmobInitialized)
+        // {
+        //     return interstitialAd != null && interstitialAd.CanShowAd();
+        // }
+        // else
+        // {
+        return MaxSdk.IsInterstitialReady(_interstitialAdUnitId);
+        // }
     }
     public static bool HasRewardedVideo()
     {
-        if (isAdmobInitialized)
-        {
-            return rewardedAd != null && rewardedAd.CanShowAd();
-        }
-        else
-        {
-            return MaxSdk.IsRewardedAdReady(_rewardedAdUnitId);
-        }
+        // if (isAdmobInitialized)
+        // {
+        //     return rewardedAd != null && rewardedAd.CanShowAd();
+        // }
+        // else
+        // {
+        return MaxSdk.IsRewardedAdReady(_rewardedAdUnitId);
+        // }
     }
 
     internal static void ShowRewarded(Action<string, string, int> callback, string callbackArgsString = "", int callbackArgsInt = 0)
@@ -958,61 +988,61 @@ public class FunGamesMax
         _rewardedCallbackArgString = callbackArgsString;
         _rewardedCallbackArgInt = callbackArgsInt;
 
-        if (isAdmobInitialized)
+        // if (isAdmobInitialized)
+        // {
+        //     if (rewardedAd != null && rewardedAd.CanShowAd())
+        //     {
+        //         try
+        //         {
+        //             rewardedAd.Show((Reward reward) =>
+        //             {
+        //                 // TODO: Reward the user.
+        //                 collected = true;
+        //             });
+        //             FunGamesAnalytics.NewDesignEvent("Rewarded" + callbackArgsString, "succeeded");
+        //             callback?.Invoke("succeeded", callbackArgsString, callbackArgsInt);
+        //         }
+        //         catch (Exception e)
+        //         {
+        //             callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
+        //             FunGamesAnalytics.NewDesignEvent("RewardedError" + callbackArgsString, "UserQuitBeforeEndingAd");
+        //             Debug.Log(e);
+        //             throw;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
+        //         FunGamesAnalytics.NewDesignEvent("RewardedNoAd" + callbackArgsString, "NoAdReady");
+        //         _rewardedCallback = null;
+        //     }
+        // }
+        // else
+        // {
+        if (MaxSdk.IsRewardedAdReady(_rewardedAdUnitId))
         {
-            if (rewardedAd != null && rewardedAd.CanShowAd())
+            try
             {
-                try
-                {
-                    rewardedAd.Show((Reward reward) =>
-                    {
-                        // TODO: Reward the user.
-                        collected = true;
-                    });
-                    FunGamesAnalytics.NewDesignEvent("Rewarded" + callbackArgsString, "succeeded");
-                    callback?.Invoke("succeeded", callbackArgsString, callbackArgsInt);
-                }
-                catch (Exception e)
-                {
-                    callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
-                    FunGamesAnalytics.NewDesignEvent("RewardedError" + callbackArgsString, "UserQuitBeforeEndingAd");
-                    Debug.Log(e);
-                    throw;
-                }
+
+                MaxSdk.ShowRewardedAd(_rewardedAdUnitId);
+                FunGamesAnalytics.NewDesignEvent("Rewarded" + callbackArgsString, "succeeded");
+                callback?.Invoke("succeeded", callbackArgsString, callbackArgsInt);
             }
-            else
+            catch (Exception e)
             {
                 callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
-                FunGamesAnalytics.NewDesignEvent("RewardedNoAd" + callbackArgsString, "NoAdReady");
-                _rewardedCallback = null;
+                FunGamesAnalytics.NewDesignEvent("RewardedError" + callbackArgsString, "UserQuitBeforeEndingAd");
+                Debug.Log(e);
+                throw;
             }
         }
         else
         {
-            if (MaxSdk.IsRewardedAdReady(_rewardedAdUnitId))
-            {
-                try
-                {
-
-                    MaxSdk.ShowRewardedAd(_rewardedAdUnitId);
-                    FunGamesAnalytics.NewDesignEvent("Rewarded" + callbackArgsString, "succeeded");
-                    callback?.Invoke("succeeded", callbackArgsString, callbackArgsInt);
-                }
-                catch (Exception e)
-                {
-                    callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
-                    FunGamesAnalytics.NewDesignEvent("RewardedError" + callbackArgsString, "UserQuitBeforeEndingAd");
-                    Debug.Log(e);
-                    throw;
-                }
-            }
-            else
-            {
-                callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
-                FunGamesAnalytics.NewDesignEvent("RewardedNoAd" + callbackArgsString, "NoAdReady");
-                _rewardedCallback = null;
-            }
+            callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
+            FunGamesAnalytics.NewDesignEvent("RewardedNoAd" + callbackArgsString, "NoAdReady");
+            _rewardedCallback = null;
         }
+        // }
     }
     public enum AdState
     {
@@ -1025,6 +1055,8 @@ public class FunGamesMax
     {
         if (isReward)
         {
+            FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Start Showing Reward");
+
             ShowRewarded((state, argStr, argInt) =>
             {
                 if (state == "reward")
@@ -1050,6 +1082,7 @@ public class FunGamesMax
         }
         else
         {
+            FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Start Showing Intertitial");
 
             ShowInterstitial((state, argStr, argInt) =>
             {
@@ -1077,52 +1110,52 @@ public class FunGamesMax
         _interstitialCallbackArgString = callbackArgsString;
         _interstitialCallbackArgInt = callbackArgsInt;
 
-        if (isAdmobInitialized)
-        {
-            if (interstitialAd != null && interstitialAd.CanShowAd())
-            {
-                try
-                {
-                    Debug.Log("Showing interstitial ad.");
-                    interstitialAd.Show();
+        // if (isAdmobInitialized)
+        // {
+        //     if (interstitialAd != null && interstitialAd.CanShowAd())
+        //     {
+        //         try
+        //         {
+        //             Debug.Log("Showing interstitial ad.");
+        //             interstitialAd.Show();
 
-                }
-                catch (Exception e)
-                {
-                    callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
-                    FunGamesAnalytics.NewDesignEvent("Error", "UserQuitBeforeEndingAd");
-                    Debug.Log(e);
-                    throw;
-                }
+        //         }
+        //         catch (Exception e)
+        //         {
+        //             callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
+        //             FunGamesAnalytics.NewDesignEvent("Error", "UserQuitBeforeEndingAd");
+        //             Debug.Log(e);
+        //             throw;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
+        //         _interstitialCallback = null;
+        //     }
+        // }
+        // else
+        // {
+        if (MaxSdk.IsInterstitialReady(_interstitialAdUnitId))
+        {
+            try
+            {
+                MaxSdk.ShowInterstitial(_interstitialAdUnitId);
             }
-            else
+            catch (Exception e)
             {
                 callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
-                _interstitialCallback = null;
+                FunGamesAnalytics.NewDesignEvent("Error", "UserQuitBeforeEndingAd");
+                Debug.Log(e);
+                throw;
             }
         }
         else
         {
-            if (MaxSdk.IsInterstitialReady(_interstitialAdUnitId))
-            {
-                try
-                {
-                    MaxSdk.ShowInterstitial(_interstitialAdUnitId);
-                }
-                catch (Exception e)
-                {
-                    callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
-                    FunGamesAnalytics.NewDesignEvent("Error", "UserQuitBeforeEndingAd");
-                    Debug.Log(e);
-                    throw;
-                }
-            }
-            else
-            {
-                callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
-                _interstitialCallback = null;
-            }
+            callback?.Invoke("fail", callbackArgsString, callbackArgsInt);
+            _interstitialCallback = null;
         }
+        // }
     }
 
     void InterstitialCallbackFunc(string status, string argString, int argInt)

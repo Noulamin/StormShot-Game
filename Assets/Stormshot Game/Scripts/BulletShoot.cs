@@ -14,15 +14,15 @@ public class BulletShoot : MonoBehaviour
 
     public void Shoot()
     {
-        if(Bullet_limit != 0)
+        if (Bullet_limit != 0)
         {
             Bullet_limit--;
             Bullets[Bullet_limit].SetActive(false);
-            if(Bullet_limit == 2)
+            if (Bullet_limit == 2)
             {
                 enemy_Shoot.Start_Shooting();
             }
-            if(Bullet_limit == 0)
+            if (Bullet_limit == 0)
             {
                 Lose();
             }
@@ -34,7 +34,9 @@ public class BulletShoot : MonoBehaviour
     public void Lose()
     {
         GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>().game_over = true;
-        GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>().SetBool("Dance",true);
-        Lose_panel.SetActive(true);
+        GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>().SetBool("Dance", true);
+        var go = new GameObject("loseDelay");
+        var ac = go.AddComponent<ActiveDelay>();
+        ac.go = Lose_panel;
     }
 }

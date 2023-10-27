@@ -11,12 +11,7 @@ public class GameAnalytic : MonoBehaviour
     public static GameAnalytic Instance;
 
 
-    [Header("Games Events Names")]
 
-    [SerializeField] private string startTheGameEvent = "startTheGame";
-    [SerializeField] private string CompletedEvent = "Completed";
-    [SerializeField] private string FaildEvent = "Faild";
-    [SerializeField] private string PlayeLevelEvent = "finishedLevel";
     [Header("Sync Settings")]
     [SerializeField] private float Check_UnSended_Events_rateTime = 0.5f;
 
@@ -27,23 +22,13 @@ public class GameAnalytic : MonoBehaviour
 
     private void Awake()
     {
-        GameAnalytics.Initialize();
-        GameAnalytics.SetCustomId("");
-        // FB.Init(() =>
-        // {
-        //     FB.ActivateApp();
-        // });
+
         Instance = this;
     }
 
     private void Update()
     {
-        time += Time.unscaledDeltaTime;
-        if (time > Check_UnSended_Events_rateTime)
-        {
-            FireAllEvents();
-            time = 0;
-        }
+
     }
 
 

@@ -1,24 +1,35 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+// using Facebook.Unity;
 using FunGames.Sdk.Analytics;
 using FunGames.Sdk.Analytics.Helpers;
 using FunGames.Sdk.RemoteConfig;
 using FunGamesSdk;
 using FunGamesSdk.FunGames.AppTrackingManager;
 using FunGamesSdk.FunGames.Gdpr;
-using GoogleMobileAds.Ump;
-using GoogleMobileAds.Ump.Api;
+// using GoogleMobileAds.Ump;
+// using GoogleMobileAds.Ump.Api;
+// using AppsFlyerSDK;
 // using OgurySdk;
 using UnityEngine;
+using FunGamesSdk.FunGames.Analytics.Helpers;
 #if UNITY_IOS
 using UnityEngine.iOS;
 #endif
 
 public class FunGamesManager : MonoBehaviour
 {
+    public static event Action FunGameFinishInitializeSDKs;
     public static FunGamesManager _instance;
-    ConsentForm _consentForm;
+    public static BannerPosition defaultBannerPosition
+    {
+        get
+        {
+            return FunGamesSettings.LoadedSettings.bannerPosition;
+        }
+    }
+    // ConsentForm _consentForm;
 
 
     private void Awake()
@@ -41,89 +52,6 @@ public class FunGamesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
-        // First thing to init is Max but not ads
-
-        Debug.Log("Start() FunGamesManager.Start");
-        FunGamesMax.Start();
-        var debugSettings = new ConsentDebugSettings
-        {
-            // Geography appears as in EEA for debug devices.
-            DebugGeography = DebugGeography.EEA,
-            TestDeviceHashedIds = new List<string>
-                {
-                    "92B693FAC54D04811E1B02FB748E0CFC"
-                }
-        };
-
-        // Here false means users are not under age.
-        ConsentRequestParameters request = new ConsentRequestParameters
-        {
-
-            ConsentDebugSettings = debugSettings,
-        };
-
-        // Check the current consent information status.
-        ConsentInformation.Update(request, OnConsentInfoUpdated);
-        // Debug.Log("Terms of Service has been accepted: " + SimpleGDPR.IsTermsOfServiceAccepted);
-        // Debug.Log("Ads personalization consent state: " + SimpleGDPR.GetConsentState(ADS_PERSONALIZATION_CONSENT));
-        // Debug.Log("Is user possibly located in the EEA: " + SimpleGDPR.IsGDPRApplicable);
-
-
-        void OnConsentInfoUpdated(FormError error)
-        {
-            if (error != null)
-            {
-                // Handle the error.
-                UnityEngine.Debug.LogError(error);
-                return;
-            }
-
-            if (ConsentInformation.IsConsentFormAvailable())
-            {
-                LoadConsentForm();
-            }
-            // If the error is null, the consent information state was updated.
-            // You are now ready to check if a form is available.
-        }
-        void LoadConsentForm()
-        {
-            // Loads a consent form.
-            ConsentForm.Load(OnLoadConsentForm);
-        }
-        void OnLoadConsentForm(ConsentForm consentForm, FormError error)
-        {
-            if (error != null)
-            {
-                // Handle the error.
-                UnityEngine.Debug.LogError(error);
-                return;
-            }
-
-            // The consent form was loaded.
-            // Save the consent form for future requests.
-            _consentForm = consentForm;
-
-            // You are now ready to show the form.
-            if (ConsentInformation.ConsentStatus == ConsentStatus.Required)
-            {
-                _consentForm.Show(OnShowForm);
-            }
-        }
-
-
-        void OnShowForm(FormError error)
-        {
-            if (error != null)
-            {
-                // Handle the error.
-                UnityEngine.Debug.LogError(error);
-                return;
-            }
-
-            // Handle dismissal by reloading form.
-            LoadConsentForm();
-        }
 #if UNITY_IOS && !UNITY_EDITOR
         Version currentVersion = new Version(Device.systemVersion);
         Version iOSATT = new Version("14.5");
@@ -137,8 +65,43 @@ public class FunGamesManager : MonoBehaviour
         {
             FinishTracking();   
         }
+#else
+        FinishTracking();
+
 #endif
+
     }
+
+    public static bool isSDKsInitialized;
+
+    //     private static IEnumerator InitializeSDKs()
+    //     {
+    // #if UNITY_EDITOR
+    //         isSDKsInitialized = true;
+    //         FunGameFinishInitializeSDKs?.Invoke();
+    // #endif
+    //         Firebasehelper.InitializeFirebase();
+    //         while (!Firebasehelper.isFirebaseInitialized)
+    //         {
+    //             yield return null;
+    //         }
+    //         Debug.Log("Initializing Firebasehelper : Done !");
+    //         SubscriptionHandler.Instance.Initialize();
+    //         while (!SubscriptionHandler.isSubscriptionHandlerInitialized)
+    //         {
+    //             yield return null;
+    //         }
+    //         Debug.Log("Initializing SubscriptionHandler : Done !");
+    //         SubscriptionHandler.Instance.LogIn(Firebasehelper.currentUser.UserId);
+    //         while (!SubscriptionHandler.isSubscriptionHandlerLogedIn)
+    //         {
+    //             yield return null;
+    //         }
+    //         Debug.Log("Customer Loge In : Done !");
+
+    //         isSDKsInitialized = true;
+    //         FunGameFinishInitializeSDKs?.Invoke();
+    //     }
     const string ADS_PERSONALIZATION_CONSENT = "ads";
     private IEnumerator ShowGDPRConsentDialogAndWait()
     {
@@ -177,18 +140,19 @@ public class FunGamesManager : MonoBehaviour
         callback?.Invoke();
     }
 
-
-
-    public static void FinishTracking()
+    static IEnumerator _FinishTracking()
     {
+        GameAnalyticsHelpers.Initialize();
+        yield return null;
 #if UNITY_IOS && !UNITY_EDITOR
         if(FunGamesAppTrackingTransparency.isAuthorizeTracking())
             FunGamesAnalytics.NewDesignEvent("AllowTracking", "true");
 #endif
         var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
-
+        // _instance.StartCoroutine(InitializeSDKs());
+        Debug.Log("Start() FunGamesManager.Start");
+        FunGamesMax.Start();
         TenjinHelpers.Initialize();
-        GameAnalyticsHelpers.Initialize();
         // FunGamesApiAnalytics.Initialize();
 
         /*if (settings.useMax)
@@ -198,13 +162,24 @@ public class FunGamesManager : MonoBehaviour
         if (settings.useOgury)
         {
             Debug.Log("Initialize Ogury");
-            // new GameObject("OguryCallbacks", typeof(OguryCallbacks));
-
-            // Ogury.Start(settings.oguryAndroidAssetKey, settings.oguryIOSAssetKey);
-
             FunGamesThumbail.Start();
         }
-        // FunGamesFB.Start();
+
+        // if (settings.useAppsFlyer)
+        // {
+        //     AppsFlyer.setIsDebug(settings.isDebug);
+        //     AppsFlyer.initSDK(settings.devkey, settings.appID);
+        //     AppsFlyer.startSDK();
+        // }
+        FunGamesAnalytics.NewDesignEvent("SDK's", "FinishTracking");
+        // FacebookHelpers.Initialize();
+    }
+
+
+
+    public static void FinishTracking()
+    {
+        _instance.StartCoroutine(_FinishTracking());
     }
     public static bool IsInEurope()
     {

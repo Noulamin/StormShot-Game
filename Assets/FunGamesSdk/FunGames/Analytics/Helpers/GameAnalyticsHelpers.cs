@@ -7,37 +7,40 @@ namespace FunGames.Sdk.Analytics.Helpers
 {
     public static class GameAnalyticsHelpers
     {
+
         public static void Initialize()
         {
-            var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
-            
-            var flag = !settings.gameAnalyticsAndroidGameKey.Equals(string.Empty) && !settings.gameAnalyticsAndroidSecretKey.Equals(string.Empty);
-            
-            if (flag == false)
-            {
-                flag = !settings.gameAnalyticsIosGameKey.Equals(string.Empty) && !settings.gameAnalyticsIosSecretKey.Equals(string.Empty);
-            }
-            
-            var gameAnalytics = UnityEngine.Object.FindObjectOfType<GameAnalytics>();
+            // var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
 
-            if (gameAnalytics == null)
-            {
-                throw new Exception("It seems like you haven't instantiated GameAnalytics GameObject");
-            }
-            
-            AddOrUpdatePlatform(RuntimePlatform.IPhonePlayer,settings.gameAnalyticsIosGameKey, settings.gameAnalyticsIosSecretKey);
-            
-            if (flag)
-            {
-                AddOrUpdatePlatform(RuntimePlatform.Android,settings.gameAnalyticsAndroidGameKey, settings.gameAnalyticsAndroidSecretKey);
-            }
-            else
-            {
-                RemovePlatform(RuntimePlatform.Android);
-            }
-            
-            GameAnalytics.SettingsGA.InfoLogBuild = false;
-            GameAnalytics.SettingsGA.InfoLogEditor = false;
+            // var flag = !settings.gameAnalyticsAndroidGameKey.Equals(string.Empty) && !settings.gameAnalyticsAndroidSecretKey.Equals(string.Empty);
+
+            // if (flag == false)
+            // {
+            //     flag = !settings.gameAnalyticsIosGameKey.Equals(string.Empty) && !settings.gameAnalyticsIosSecretKey.Equals(string.Empty);
+            // }
+
+            // var gameAnalytics = UnityEngine.Object.FindObjectOfType<GameAnalytics>();
+
+            // if (gameAnalytics == null)
+            // {
+            //     throw new Exception("It seems like you haven't instantiated GameAnalytics GameObject");
+            // }
+
+            // AddOrUpdatePlatform(RuntimePlatform.IPhonePlayer,settings.gameAnalyticsIosGameKey, settings.gameAnalyticsIosSecretKey);
+
+            // if (flag)
+            // {
+            //     AddOrUpdatePlatform(RuntimePlatform.Android,settings.gameAnalyticsAndroidGameKey, settings.gameAnalyticsAndroidSecretKey);
+            // }
+            // else
+            // {
+            //     RemovePlatform(RuntimePlatform.Android);
+            // }
+
+            Debug.Log("GameAnalytics Initialization");
+
+            GameAnalytics.SettingsGA.InfoLogBuild = true;
+            GameAnalytics.SettingsGA.InfoLogEditor = true;
             GameAnalytics.Initialize();
         }
 
@@ -47,9 +50,9 @@ namespace FunGames.Sdk.Analytics.Helpers
             {
                 GameAnalytics.SettingsGA.AddPlatform(platform);
             }
-            
+
             var index = GameAnalytics.SettingsGA.Platforms.IndexOf(platform);
-            
+
             GameAnalytics.SettingsGA.UpdateGameKey(index, gameKey);
             GameAnalytics.SettingsGA.UpdateSecretKey(index, secretKey);
             GameAnalytics.SettingsGA.Build[index] = Application.version;
@@ -61,13 +64,19 @@ namespace FunGames.Sdk.Analytics.Helpers
             {
                 return;
             }
-            
+
             var index = GameAnalytics.SettingsGA.Platforms.IndexOf(platform);
-            
+
             GameAnalytics.SettingsGA.RemovePlatformAtIndex(index);
         }
 
-        internal static void ProgressionEvent(string statusString, string level, string subLevel="", int score=-1){
+        internal static void ProgressionEvent(string statusString, string level, string subLevel = "", int score = -1)
+        {
+            if (!GameAnalytics.Initialized)
+            {
+                Debug.LogError("GameAnalytics not initialized yet");
+                return;
+            }
 
             var status = GAProgressionStatus.Start;
 
@@ -80,25 +89,30 @@ namespace FunGames.Sdk.Analytics.Helpers
                     status = GAProgressionStatus.Fail;
                     break;
             }
-   
+
             if (score == -1)
             {
                 GameAnalytics.NewProgressionEvent(status, level, subLevel);
             }
             else
             {
-                GameAnalytics.NewProgressionEvent(status, level, subLevel,score);
+                GameAnalytics.NewProgressionEvent(status, level, subLevel, score);
             }
         }
-        internal static void NewDesignEvent(string eventId, string eventValue="")
+        internal static void NewDesignEvent(string eventId, string eventValue = "")
         {
+            if (!GameAnalytics.Initialized)
+            {
+                Debug.LogError("GameAnalytics not initialized yet");
+                return;
+            }
             if (eventValue != "")
             {
                 try
                 {
                     var score = float.Parse(eventValue);
-                    
-                    GameAnalytics.NewDesignEvent(eventId,score);
+
+                    GameAnalytics.NewDesignEvent(eventId, score);
                 }
                 catch
                 {
@@ -110,10 +124,15 @@ namespace FunGames.Sdk.Analytics.Helpers
                 GameAnalytics.NewDesignEvent(eventId);
             }
         }
-        
+
         internal static void NewAdEvent(GAAdAction adAction, GAAdType adType, string adSdkName, string adPlacement)
         {
-            GameAnalytics.NewAdEvent(adAction, adType,adSdkName, adPlacement);
+            if (!GameAnalytics.Initialized)
+            {
+                Debug.LogError("GameAnalytics not initialized yet");
+                return;
+            }
+            GameAnalytics.NewAdEvent(adAction, adType, adSdkName, adPlacement);
         }
     }
 }

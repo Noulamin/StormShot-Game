@@ -6,6 +6,22 @@ namespace FunGamesSdk
     [CreateAssetMenu(fileName = "Assets/Resources/FunGamesSettings", menuName = "FunGamesSdk/Settings", order = 1000)]
     public class FunGamesSettings : ScriptableObject
     {
+        static FunGamesSettings _funGamesSettings;
+        public static FunGamesSettings LoadedSettings
+        {
+            get
+            {
+                if (_funGamesSettings == null)
+                {
+                    _funGamesSettings = Resources.Load<FunGamesSettings>("FunGamesSettings");
+                }
+                return _funGamesSettings;
+            }
+        }
+        // [Header("Editor Testings")]
+        // public bool TurnOnIsSubscribed;
+        // public bool TurnOnIsSDKInitialized;
+        public bool UnLockAllLevel = true;
         [Header("Sdk Version")]
 
         [Tooltip("Sdk Version")]
@@ -24,6 +40,26 @@ namespace FunGamesSdk
         public bool usePushNotifications;
 
 
+        [Header("Firebase")]
+        public bool SignInAnonymously;
+
+        [Header("AppsFlyer")]
+
+        [Tooltip("Use AppsFlyer")]
+        public bool useAppsFlyer;
+        public string devkey;
+        public string appID;
+        public bool isDebug;
+
+        // [Header("In App Purchase")]
+        // public string PrivacyPolicyLink = "";
+        // public string TermsAndConditionLink = "";
+        // [Header("RevenueCat")]
+        // public string RevenueCat_API_KEY = "sk_LeNBhbYJmpYvyiNzVXAAJMQkqXEuC";
+
+        // [Header("In App Purchase")]
+        // public string NoAdsSubscriptionProductId = "productId";
+
         // [Header("Facebook")]
 
         // [Tooltip("Use Facebook")]
@@ -38,17 +74,17 @@ namespace FunGamesSdk
         [Tooltip("Use GameAnalytics")]
         public bool useGameAnalytics;
 
-        [Tooltip("GameAnalytics Ios Game Key")]
-        public string gameAnalyticsIosGameKey;
+        // [Tooltip("GameAnalytics Ios Game Key")]
+        // public string gameAnalyticsIosGameKey;
 
-        [Tooltip("GameAnalytics Ios Secret Key")]
-        public string gameAnalyticsIosSecretKey;
+        // [Tooltip("GameAnalytics Ios Secret Key")]
+        // public string gameAnalyticsIosSecretKey;
 
-        [Tooltip("GameAnalytics Android Game Key")]
-        public string gameAnalyticsAndroidGameKey;
+        // [Tooltip("GameAnalytics Android Game Key")]
+        // public string gameAnalyticsAndroidGameKey;
 
-        [Tooltip("GameAnalytics Android Secret Key")]
-        public string gameAnalyticsAndroidSecretKey;
+        // [Tooltip("GameAnalytics Android Secret Key")]
+        // public string gameAnalyticsAndroidSecretKey;
 
 
         [Header("Tenjin")]
@@ -57,7 +93,16 @@ namespace FunGamesSdk
         public bool useTenjin;
 
         [Tooltip("Tenjin Api Key")]
-        public string tenjinApiKey = "TY9WX3K6HCNJPIXYZB6ZN2RPPZEAM7QJ";
+        public string tenjinApiKeyAndroid = "";
+        public string tenjinApiKeyIOS = "";
+
+        public string tenjinApiKey =>
+#if UNITY_EDITOR || UNITY_ANDROID
+        tenjinApiKeyAndroid
+#else
+        tenjinApiKeyIOS
+#endif
+        ;
 
 
         [Header("CrossPromo")]
@@ -96,7 +141,7 @@ namespace FunGamesSdk
         public bool useGdpr;
 
 
-        [Header("Google Admob")]
+        // [Header("Google Admob")]
         // [Tooltip("Use Appopen Admob Only it will Disable Applovin AppOpen From Showing")]
         // public bool Use_Appopen_AdmobOnly;
         // public string IOSAppopenAdmobAdUnitId = "ca-app-pub-3940256099942544/3419835294";
@@ -104,17 +149,19 @@ namespace FunGamesSdk
         // public bool Use_Banner_AdmobOnly;
         // public string IOSBannerAdmobAdUnitId = "ca-app-pub-3940256099942544/6300978111";
         // public string androidBannerAdmobAdUnitId = "ca-app-pub-3940256099942544/6300978111";
-        [Header("Admob iOS")]
-        public string AdmobiOSInterstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
-        public string AdmobiOSRewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
-        public string AdmobiOSBannerAdUnitId = "ca-app-pub-3940256099942544/6300978111";
-        public string AdmobIOSAppopenAdUnitId = "ca-app-pub-3940256099942544/3419835294";
+        // [Header("Admob iOS")]
+        // public string AdmobiOSInterstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
+        // public string AdmobiOSRewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
+        // public string AdmobiOSBannerAdUnitId = "ca-app-pub-3940256099942544/6300978111";
+        // public string AdmobIOSAppopenAdUnitId = "ca-app-pub-3940256099942544/3419835294";
 
-        [Header("Admob Android")]
-        public string AdmobandroidInterstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
-        public string AdmobandroidRewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
-        public string AdmobandroidBannerAdUnitId = "ca-app-pub-3940256099942544/6300978111";
-        public string AdmobandroidAppopenAdUnitId = "ca-app-pub-3940256099942544/3419835294";
+        // [Header("Admob Android")]
+        // public string AdmobandroidInterstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
+        // public string AdmobandroidRewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
+        // public string AdmobandroidBannerAdUnitId = "ca-app-pub-3940256099942544/6300978111";
+        // public string AdmobandroidAppopenAdUnitId = "ca-app-pub-3940256099942544/3419835294";
+        [Header("Ads Settings")]
+        public BannerPosition bannerPosition = BannerPosition.BOTTOM;
         [Header("Applovin Max")]
 
         [Tooltip("Use Max")]

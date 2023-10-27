@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d367e89d23b4adab346e952fe8be86, type: 3}
   m_Name: FunGamesSettings
   m_EditorClassIdentifier: 
+  UnLockAllLevel: 1
   version: 2.5
-  useATTPopup: 0
+  useATTPopup: 1
   usePushNotifications: 0
-  useGameAnalytics: 0
-  gameAnalyticsIosGameKey: 
-  gameAnalyticsIosSecretKey: 
-  gameAnalyticsAndroidGameKey: 
-  gameAnalyticsAndroidSecretKey: 
+  SignInAnonymously: 0
+  useAppsFlyer: 1
+  devkey: ewHabL5YRMXtMa7MMhUGZN
+  appID: 6446327152
+  isDebug: 0
+  useGameAnalytics: 1
   useTenjin: 0
-  tenjinApiKey: TY9WX3K6HCNJPIXYZB6ZN2RPPZEAM7QJ
+  tenjinApiKeyAndroid: IJ39Z3TMQ5AEGN2KUBAOVWASVKTCBPI6
+  tenjinApiKeyIOS: 1FARFOPBN6DVA8S5NYXIWABRRBXS8UYR
   playLocalVideos: 0
   playRemoteVideos: 0
   useOgury: 0
@@ -30,21 +33,14 @@ MonoBehaviour:
   oguryAndroidAssetKey: 
   androidThumbnailAdUnitId: 
   useGdpr: 0
-  AdmobiOSInterstitialAdUnitId: ca-app-pub-3940256099942544/1033173712
-  AdmobiOSRewardedAdUnitId: ca-app-pub-3940256099942544/5224354917
-  AdmobiOSBannerAdUnitId: ca-app-pub-3940256099942544/6300978111
-  AdmobIOSAppopenAdUnitId: ca-app-pub-3940256099942544/3419835294
-  AdmobandroidInterstitialAdUnitId: ca-app-pub-3940256099942544/1033173712
-  AdmobandroidRewardedAdUnitId: ca-app-pub-3940256099942544/5224354917
-  AdmobandroidBannerAdUnitId: ca-app-pub-3940256099942544/6300978111
-  AdmobandroidAppopenAdUnitId: ca-app-pub-3940256099942544/3419835294
-  useMax: 0
+  bannerPosition: 1
+  useMax: 1
   maxSdkKey: zEt4_M4PkG_cNWU_sR4p4RXZ6mE5AO4RAx8SQs1BVTZR5iMfLP54K_p1L4C6x88exH8F__Tr3QQ0TgrAyzCiPq
-  iOSInterstitialAdUnitId: 7f8178fb3d914704
-  iOSRewardedAdUnitId: 752466d867542e12
-  iOSBannerAdUnitId: d8435dbe5f919cf5
-  IOSAppopenAdUnitId: 30be2635e625dbd7
-  androidInterstitialAdUnitId: 68e09a32fe2fba36
-  androidRewardedAdUnitId: c23033e6682775bd
-  androidBannerAdUnitId: 376f1cb1d09a235e
-  androidAppopenAdUnitId: 6f8ce356f480e115
+  iOSInterstitialAdUnitId: 33328bd7a08ee1cd
+  iOSRewardedAdUnitId: c5532d03c96f22c5
+  iOSBannerAdUnitId: 1228cb058b91f6d0
+  IOSAppopenAdUnitId: 216e9bdd60c7733c
+  androidInterstitialAdUnitId: 6312eef946f792f2
+  androidRewardedAdUnitId: a1ca5d7c989c0664
+  androidBannerAdUnitId: 898da242efe287dc
+  androidAppopenAdUnitId: 13acf7fa70a447e0

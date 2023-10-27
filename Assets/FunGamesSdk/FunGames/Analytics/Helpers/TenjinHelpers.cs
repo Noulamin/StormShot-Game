@@ -11,17 +11,24 @@ namespace FunGames.Sdk.Analytics.Helpers
 
         public static void Initialize()
         {
-            var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
+            // var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
 
-            if (settings.useTenjin == false)
-            {
-                return;
-            }
+            // if (settings.useTenjin == false)
+            // {
+            //     return;
+            // }
 
-            var instance = Tenjin.getInstance(settings.tenjinApiKey);
+            // var instance = Tenjin.getInstance(settings.tenjinApiKey);
 
-            instance.Connect();
-            instance.GetDeeplink(DeferredDeeplinkCallback);
+            // instance.Connect();
+            // instance.GetDeeplink(DeferredDeeplinkCallback);
+            // AirbridgeUnity.SetDeeplinkCallback("TenjinHelpers");
+        }
+
+        // Method will call by Airbridge when deeplink detected
+        private void OnTrackingLinkResponse(string url)
+        {
+            Debug.Log("Airbridge : " + url);
         }
 
         public void OnApplicationPause(bool pause)
@@ -32,9 +39,9 @@ namespace FunGames.Sdk.Analytics.Helpers
             }
 
             var settings = Resources.Load<FunGamesSettings>("FunGamesSettings");
-            var instance = Tenjin.getInstance(settings.tenjinApiKey);
+            // var instance = Tenjin.getInstance(settings.tenjinApiKey);
 
-            instance.Connect();
+            // instance.Connect();
         }
 
         private static void DeferredDeeplinkCallback(Dictionary<string, string> data)
@@ -70,6 +77,7 @@ namespace FunGames.Sdk.Analytics.Helpers
             }
 
             // FunGamesApiAnalytics.NewEvent("ga_new_user", call);
+            FunGamesAnalytics.NewDesignEvent("GA_New_User", call);
         }
     }
 }
