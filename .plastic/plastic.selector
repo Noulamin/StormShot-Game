@@ -1,0 +1,4 @@
+repository "StormShot-Game@ouazstudio@cloud"
+  path "/"
+    br "/main"
+    co "/main"
