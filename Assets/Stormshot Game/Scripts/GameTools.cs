@@ -62,7 +62,7 @@ public class GameTools : MonoBehaviour
         // }
 
         // InvokeRepeating("reload",0.3f,0.3f);
-        AdsManager.Instance.ShowInterstitialTimer(() =>
+        AdsManager.Instance.ShowIntersitial(() =>
         {
             reload();
         });

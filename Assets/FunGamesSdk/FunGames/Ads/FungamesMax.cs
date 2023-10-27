@@ -569,7 +569,6 @@ public class FunGamesMax
             MaxSdk.CreateBanner(_bannerAdUnitId, bannerPosition == BannerPosition.TOP ? MaxSdkBase.BannerPosition.TopCenter : MaxSdkBase.BannerPosition.BottomCenter);
             MaxSdk.SetBannerExtraParameter(_bannerAdUnitId, "adaptive_banner", "false");
             MaxSdk.SetBannerBackgroundColor(_bannerAdUnitId, Color.clear);
-            MaxSdk.SetBannerWidth(_bannerAdUnitId, 360);
             _isBannerShowing = false;
             Debug.Log("Banner Created");
             FunGamesAnalytics.NewDesignEvent("SDK's[ADS]", "Banner initialized");

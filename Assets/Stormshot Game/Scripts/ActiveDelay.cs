@@ -12,6 +12,6 @@ public class ActiveDelay : MonoBehaviour
     IEnumerator losedelay()
     {
         yield return new WaitForSeconds(2);
-        gameObject.SetActive(true);
+        go.SetActive(true);
     }
 }

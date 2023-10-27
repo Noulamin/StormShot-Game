@@ -405,7 +405,7 @@ public class AdsManager : MonoBehaviour
     }
     IEnumerator waitingEnum(Action clb)
     {
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(2);
         clb?.Invoke();
     }
 
